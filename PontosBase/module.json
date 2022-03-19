@@ -1,0 +1,12 @@
+{
+    "id": "{CF9266CE-467E-7F0F-7F47-F25A7F99FCEA}",
+    "name": "PontosBase",
+    "type": 3,
+    "vendor": "hansgrohe",
+    "aliases": [],
+    "parentRequirements": [],
+    "childRequirements": [],
+    "implemented": [],
+    "prefix": "HGPB",
+    "url": ""
+}

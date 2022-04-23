@@ -1,5 +1,648 @@
 {
-    "elements": [],
-    "actions": [],
-    "status": []
+    "elements": [
+        { 
+            "type": "Label",
+            "caption": "Insert the IP-address of the Pontos Base:"
+        },
+        { 
+            "type": "ValidationTextBox", 
+            "name": "IPAddress", 
+            "caption": "IP Address" 
+        },
+        { "type": "Select", 
+            "name": "Modell", 
+            "caption": "Which modell you have?",
+            "value": "2",
+            "options": [
+                { "caption": "Hans Grohe Pontos Base", "value": "hansgrohe" },
+                { "caption": "Syr SafeTech ", "value": "syrtech" }
+                ]
+        },                
+        {
+            "type": "NumberSpinner",
+            "name": "UpdateDataInterval",
+            "minimum": 0,
+            "caption": "Intervall in sec. , 0 to deactive automatic"
+        },
+        { 
+            "type": "Label",
+            "caption": "Timer is deactivated, please reload Data manually!",
+            "visible": false
+        },
+        {
+            "type": "ExpansionPanel",
+            "caption": "Choose which default variable you want to create:",
+            "visible": false,
+            "name": "DefVarPanel",
+            "items": [
+                {
+                    "type": "CheckBox",
+                    "caption": "active profile",
+                    "name": "getPRFbool"
+                },
+                {
+                    "type": "CheckBox",
+                    "caption": "Valvestate",
+                    "name": "getVLVbool"
+                },
+                {
+                    "type": "CheckBox",
+                    "caption": "total volume in liters",
+                    "name": "getVOLbool",
+                    "visible": false
+                },                 
+                {
+                    "type": "CheckBox",
+                    "caption": "battery voltage",
+                    "name": "getBATbool"
+                },
+                {
+                    "type": "CheckBox",
+                    "caption": "water temperature",
+                    "name": "getNETbool",
+                    "visible": false
+                },
+                { 
+                    "type": "Label",
+                    "caption": "switchable actions",
+                    "name": "switchableLabel",
+                    "visible": false
+                },
+                {
+                    "type": "CheckBox",
+                    "caption": "lock or unlock valve",
+                    "name": "getLOCKbool",
+                    "visible": false
+                },
+                {
+                    "type": "CheckBox",
+                    "caption": "switch active profile",
+                    "name": "getPROFILESWbool",
+                    "visible": false
+                }
+            ]
+        },
+        {
+            "type": "ExpansionPanel",
+            "caption": "Choose which variable you want to create:",
+            "visible": false,
+            "name": "VarPanel",
+            "items": [
+                {
+                    "type": "Label",
+                    "caption": "Sytemvariablen"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "Serial-no.",
+                    "name": "getSRNbool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "Firmware Version",
+                    "name": "getVERbool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "Type",
+                    "name": "getTYPbool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "Code-no.",
+                    "name": "getCNObool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "MAC Address",
+                    "name": "getMACbool"
+                 },
+                 {
+                    "type": "Label",
+                    "caption": "--- Profiles ---"
+                 },
+                 {
+                    "type": "Label",
+                    "caption": "Profile 1"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "Standardprofil",
+                    "name": "getPRNbool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "present",
+                    "name": "getPN1bool"
+                 },
+                
+                {
+                    "type": "CheckBox",
+                    "caption": "max volume for leak, profile 1",
+                    "name": "getPV1bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "max minutes for leak, profile 1",
+                    "name": "getPT1bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "max flow l/h for leak, profile 1",
+                    "name": "getPF1bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "micro leak detection, proflie 1",
+                    "name": "getPM1bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "getPR1",
+                    "name": "getPR1bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "getPB1",
+                    "name": "getPB1bool"
+                 },
+                 {
+                    "type": "Label",
+                    "caption": "Profile 2"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "absent",
+                    "name": "getPN2bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "max volume for leak, profile 2",
+                    "name": "getPV2bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "max minutes for leak, profile 2",
+                    "name": "getPT2bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "max flow l/h for leak, profile 2",
+                    "name": "getPF2bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "micro leak detection, profile 2",
+                    "name": "getPM2bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "getPR2",
+                    "name": "getPR2bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "getPB2",
+                    "name": "getPB2bool"
+                 },
+                 {
+                    "type": "Label",
+                    "caption": "Profile 3"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "holiday",
+                    "name": "getPN3bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "max volume for leak, profile 3",
+                    "name": "getPV3bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "max minutes for leak, profile 3",
+                    "name": "getPT3bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "max flow l/h for leak, profile 3",
+                    "name": "getPF3bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "micro leak detection, profile 3",
+                    "name": "getPM3bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "getPR3",
+                    "name": "getPR3bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "getPB3",
+                    "name": "getPB3bool"
+                 },
+                 {
+                    "type": "Label",
+                    "caption": "Profile 4"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "increased consumption",
+                    "name": "getPN4bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "max volume for leak, profile 4",
+                    "name": "getPV4bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "max minutes for leak, profile 4",
+                    "name": "getPT4bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "max flow l/h for leak, profile 4",
+                    "name": "getPF4bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "micro leak detection, profile 4",
+                    "name": "getPM4bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "getPR4",
+                    "name": "getPR4bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "getPB4",
+                    "name": "getPB4bool"
+                 },
+                 {
+                    "type": "Label",
+                    "caption": "Profile 5"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "max consumption",
+                    "name": "getPN5bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "max volume for leak, profile 5",
+                    "name": "getPV5bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "max minutes for leak, profile 5",
+                    "name": "getPT5bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "max flow l/h for leak, profile 5",
+                    "name": "getPF5bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "micro leak detection, profile 5",
+                    "name": "getPM5bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "getPR5",
+                    "name": "getPR5bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "getPB5",
+                    "name": "getPB5bool"
+                 },                 
+                 {
+                    "type": "Label",
+                    "caption": "Profile 6"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "free profile 6",
+                    "name": "getPN6bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "max volume for leak, profile 6",
+                    "name": "getPV6bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "max minutes for leak, profile 6",
+                    "name": "getPT6bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "max flow l/h for leak, profile 6",
+                    "name": "getPF6bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "micro leak detection, profile 6",
+                    "name": "getPM6bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "getPR6",
+                    "name": "getPR6bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "getPB6",
+                    "name": "getPB6bool"
+                 },
+                 {
+                    "type": "Label",
+                    "caption": "Profile 7"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "free profile 7",
+                    "name": "getPN7bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "max volume for leak, profile 7",
+                    "name": "getPV7bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "max minutes for leak, profile 7",
+                    "name": "getPT7bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "max flow l/h for leak, profile 7",
+                    "name": "getPF7bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "micro leak detection, profile 7",
+                    "name": "getPM7bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "getPR7",
+                    "name": "getPR7bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "getPB7",
+                    "name": "getPB7bool"
+                 },
+                 {
+                    "type": "Label",
+                    "caption": "Profile 8"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "free profile 8",
+                    "name": "getPN8bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "max volume for leak, profile 8",
+                    "name": "getPV8bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "max minutes for leak, profile 8",
+                    "name": "getPT8bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "max flow l/h for leak, profile 8",
+                    "name": "getPF8bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "micro leak detection, profile 8",
+                    "name": "getPM8bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "getPR8",
+                    "name": "getPR8bool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "getPB8",
+                    "name": "getPB8bool"
+                 },
+                 {
+                    "type": "Label",
+                    "caption": "information variablen"
+                 },
+
+
+                 {
+                    "type": "CheckBox",
+                    "caption": "water pressure",
+                    "name": "getBARbool"
+                 },
+                 {
+                    "type": "CheckBox",
+                    "caption": "last update",
+                    "name": "getRTCbool"
+                 },
+
+                 {
+                    "type": "Label",
+                    "caption": "Unknown variablen"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "getTMP",
+                    "name": "getTMPbool"
+                 },
+               
+                {
+                    "type": "CheckBox",
+                    "caption": "getCEL",
+                    "name": "getCELbool"
+                 },
+
+                {
+                    "type": "CheckBox",
+                    "caption": "getNPS",
+                    "name": "getNPSbool",
+                    "visible": false
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "current alarm",
+                    "name": "getALAbool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "getALM",
+                    "name": "getALMbool",
+                    "visible": false
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "getDMA",
+                    "name": "getDMAbool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "getAVO",
+                    "name": "getAVObool"
+                 },
+
+                {
+                    "type": "CheckBox",
+                    "caption": "get71",
+                    "name": "get71bool",
+                    "visible": false
+                 },
+                
+                {
+                    "type": "CheckBox",
+                    "caption": "getBUZ",
+                    "name": "getBUZbool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "getDBD",
+                    "name": "getDBDbool",
+                    "visible": false
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "getDBT",
+                    "name": "getDBTbool",
+                    "visible": false
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "getDST",
+                    "name": "getDSTbool",
+                    "visible": false
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "getDCM",
+                    "name": "getDCMbool",
+                    "visible": false
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "getDOM",
+                    "name": "getDOMbool",
+                    "visible": false
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "getDPL",
+                    "name": "getDPLbool",
+                    "visible": false
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "getDTC",
+                    "name": "getDTCbool",
+                    "visible": false
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "getDRP",
+                    "name": "getDRPbool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "getWFS",
+                    "name": "getWFSbool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "WiFi RSSI",
+                    "name": "getWFRbool"
+                 },
+                
+                {
+                    "type": "CheckBox",
+                    "caption": "getIDS",
+                    "name": "getIDSbool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "getTMZ",
+                    "name": "getTMZbool"
+                 }                
+                ]
+            }
+
+    ],
+    "actions": [
+        {
+            "type": "Label",    
+            "caption": "First run, please press connect button",
+            "visible": true
+        },
+        {
+            "type": "Button",
+            "caption": "Connect",
+            "name": "FirstRun",
+            "onClick": "HGPB_FirstRun($id);",
+            "visible": "true"
+        },
+        { 
+            "type": "ProgressBar",
+            "name": "FirstRunProgress",
+            "indeterminate": true,
+            "visible": false,
+            "caption": "loading Data..."
+        },
+        {
+            "type": "Label",
+            "caption": "Enable Admin mode, with enabled Admin mode you see more Data and have write access.",
+            "name": "EnableAdminModeLabel",
+            "visible": false
+        },
+        {
+            "type": "Button",
+            "caption": "Enable Admin mode",
+            "name": "EnableAdminModeButton",
+            "onClick": "HGPB_WriteSetting($id, \"EnableAdminMode\", 0);",
+            "visible": false
+        },        
+        {
+            "type": "Button",
+            "caption": "update manual",
+            "name": "UpdateData",
+            "onClick": "HGPB_UpdateData($id);",
+            "visible": true
+        },
+        {
+            "type": "Button",
+            "caption": "clear Alarm",
+            "name": "ClearAlarm",
+            "onClick": "HGPB_WriteSetting($id, \"ClearAlarm\", 0);",
+            "visible": false
+        }  
+
+    ],
+    "status": [
+        {  
+            "code": 100, 
+            "icon": "active", 
+            "caption": "instance is active" 
+        },
+        {  
+            "code": 104, 
+            "icon": "inactive", 
+            "caption": "timer deactivated!" 
+        }
+    ]
 }

@@ -138,22 +138,22 @@
                 
                 {
                     "type": "CheckBox",
-                    "caption": "max volume for leak, profile 1",
+                    "caption": "water volume, profile 1",
                     "name": "getPV1bool"
                  },
                 {
                     "type": "CheckBox",
-                    "caption": "max minutes for leak, profile 1",
+                    "caption": "permanent water withdrawal, profile 1",
                     "name": "getPT1bool"
                  },
                 {
                     "type": "CheckBox",
-                    "caption": "max flow l/h for leak, profile 1",
+                    "caption": "water flow l/h, profile 1",
                     "name": "getPF1bool"
                  },
                 {
                     "type": "CheckBox",
-                    "caption": "micro leak detection, proflie 1",
+                    "caption": "micro leak detection, profile 1",
                     "name": "getPM1bool"
                  },
                 {
@@ -177,17 +177,17 @@
                  },
                 {
                     "type": "CheckBox",
-                    "caption": "max volume for leak, profile 2",
+                    "caption": "water volume, profile 2",
                     "name": "getPV2bool"
                  },
                 {
                     "type": "CheckBox",
-                    "caption": "max minutes for leak, profile 2",
+                    "caption": "permanent water withdrawal, profile 2",
                     "name": "getPT2bool"
                  },
                 {
                     "type": "CheckBox",
-                    "caption": "max flow l/h for leak, profile 2",
+                    "caption": "water flow l/h, profile 2",
                     "name": "getPF2bool"
                  },
                 {
@@ -216,17 +216,17 @@
                  },
                 {
                     "type": "CheckBox",
-                    "caption": "max volume for leak, profile 3",
+                    "caption": "water volume, profile 3",
                     "name": "getPV3bool"
                  },
                 {
                     "type": "CheckBox",
-                    "caption": "max minutes for leak, profile 3",
+                    "caption": "permanent water withdrawal, profile 3",
                     "name": "getPT3bool"
                  },
                 {
                     "type": "CheckBox",
-                    "caption": "max flow l/h for leak, profile 3",
+                    "caption": "water flow l/h, profile 3",
                     "name": "getPF3bool"
                  },
                 {
@@ -255,17 +255,17 @@
                  },
                 {
                     "type": "CheckBox",
-                    "caption": "max volume for leak, profile 4",
+                    "caption": "water volume, profile 4",
                     "name": "getPV4bool"
                  },
                 {
                     "type": "CheckBox",
-                    "caption": "max minutes for leak, profile 4",
+                    "caption": "permanent water withdrawal, profile 4",
                     "name": "getPT4bool"
                  },
                 {
                     "type": "CheckBox",
-                    "caption": "max flow l/h for leak, profile 4",
+                    "caption": "water flow l/h, profile 4",
                     "name": "getPF4bool"
                  },
                 {
@@ -294,17 +294,17 @@
                  },
                 {
                     "type": "CheckBox",
-                    "caption": "max volume for leak, profile 5",
+                    "caption": "water volume, profile 5",
                     "name": "getPV5bool"
                  },
                 {
                     "type": "CheckBox",
-                    "caption": "max minutes for leak, profile 5",
+                    "caption": "permanent water withdrawal, profile 5",
                     "name": "getPT5bool"
                  },
                 {
                     "type": "CheckBox",
-                    "caption": "max flow l/h for leak, profile 5",
+                    "caption": "water flow l/h, profile 5",
                     "name": "getPF5bool"
                  },
                 {
@@ -333,17 +333,17 @@
                  },
                 {
                     "type": "CheckBox",
-                    "caption": "max volume for leak, profile 6",
+                    "caption": "water volume, profile 6",
                     "name": "getPV6bool"
                  },
                 {
                     "type": "CheckBox",
-                    "caption": "max minutes for leak, profile 6",
+                    "caption": "permanent water withdrawal, profile 6",
                     "name": "getPT6bool"
                  },
                 {
                     "type": "CheckBox",
-                    "caption": "max flow l/h for leak, profile 6",
+                    "caption": "water flow l/h, profile 6",
                     "name": "getPF6bool"
                  },
                 {
@@ -372,17 +372,17 @@
                  },
                 {
                     "type": "CheckBox",
-                    "caption": "max volume for leak, profile 7",
+                    "caption": "water volume, profile 7",
                     "name": "getPV7bool"
                  },
                 {
                     "type": "CheckBox",
-                    "caption": "max minutes for leak, profile 7",
+                    "caption": "permanent water withdrawal, profile 7",
                     "name": "getPT7bool"
                  },
                 {
                     "type": "CheckBox",
-                    "caption": "max flow l/h for leak, profile 7",
+                    "caption": "water flow l/h, profile 7",
                     "name": "getPF7bool"
                  },
                 {
@@ -411,17 +411,17 @@
                  },
                 {
                     "type": "CheckBox",
-                    "caption": "max volume for leak, profile 8",
+                    "caption": "water volume, profile 8",
                     "name": "getPV8bool"
                  },
                 {
                     "type": "CheckBox",
-                    "caption": "max minutes for leak, profile 8",
+                    "caption": "permanent water withdrawal, profile 8",
                     "name": "getPT8bool"
                  },
                 {
                     "type": "CheckBox",
-                    "caption": "max flow l/h for leak, profile 8",
+                    "caption": "water flow l/h, profile 8",
                     "name": "getPF8bool"
                  },
                 {

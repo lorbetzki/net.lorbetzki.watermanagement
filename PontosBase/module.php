@@ -197,6 +197,10 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 			$this->RegisterPropertyBoolean('getIDSbool', false);
 			$this->RegisterPropertyInteger('getTMZ', 0);
 			$this->RegisterPropertyBoolean('getTMZbool', false);
+			$this->RegisterPropertyInteger('getCND', 0);
+			$this->RegisterPropertyBoolean('getCNDbool', false);
+			$this->RegisterPropertyInteger('getCND2', 0);
+			$this->RegisterPropertyBoolean('getCND2bool', false);
 
 			$this->RegisterPropertyInteger('getLOCK', 0);
 			$this->RegisterPropertyBoolean('getLOCKbool', false);
@@ -268,6 +272,24 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 			{
 				IPS_CreateVariableProfile("WaterManagement.Mliter", 1);
 				IPS_SetVariableProfileText ("WaterManagement.Mliter", ""," mL");
+			}
+			if (!@IPS_VariableProfileExists("WaterManagement.Conductivity"))
+			{
+				IPS_CreateVariableProfile("WaterManagement.Conductivity", 1);
+				IPS_SetVariableProfileText ("WaterManagement.Conductivity", ""," µS/cm");
+			}
+			if (!@IPS_VariableProfileExists("WaterManagement.Hardness"))
+			{
+				IPS_CreateVariableProfile("WaterManagement.Hardness", 1);
+				IPS_SetVariableProfileDigits("WaterManagement.Hardness", 1);
+				IPS_SetVariableProfileAssociation("WaterManagement.Hardness", 4, $this->Translate('very soft'), "", 0x00FF00);
+				IPS_SetVariableProfileAssociation("WaterManagement.Hardness", 9, $this->Translate('soft'), "", 0x00DC00);
+				IPS_SetVariableProfileAssociation("WaterManagement.Hardness", 15, $this->Translate('slightly hard'), "", 0x00C800);
+				IPS_SetVariableProfileAssociation("WaterManagement.Hardness", 19, $this->Translate('moderately hard'), "", 0xFF0101);
+				IPS_SetVariableProfileAssociation("WaterManagement.Hardness", 24, $this->Translate('hard'), "", 0xE60000);
+				IPS_SetVariableProfileAssociation("WaterManagement.Hardness", 25, $this->Translate('very hard'), "", 0xC80000);
+
+				IPS_SetVariableProfileValues("WaterManagement.Hardness", 0, 0, 1);
 			}
 			############################### 
 
@@ -357,11 +379,13 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 			$this->MaintainVariable('getDTC', $this->Translate('getDTC'),1, "",83, $this->ReadPropertyBoolean('getDTCbool') == true);
 			$this->MaintainVariable('getDRP', $this->Translate('getDRP'),1, "",84, $this->ReadPropertyBoolean('getDRPbool') == true);
 			$this->MaintainVariable('getWFS', $this->Translate('getWFS'),1, "",85, $this->ReadPropertyBoolean('getWFSbool') == true);
-			$this->MaintainVariable('getWFR', $this->Translate('WiFi RSSI'),1, "",86, $this->ReadPropertyBoolean('getWFRbool') == true);
+			$this->MaintainVariable('getWFR', $this->Translate('getWFR'),1, "",86, $this->ReadPropertyBoolean('getWFRbool') == true);
 			$this->MaintainVariable('getRTC', $this->Translate('last update'),1, "~UnixTimestamp",87, $this->ReadPropertyBoolean('getRTCbool') == true);
 			$this->MaintainVariable('getIDS', $this->Translate('getIDS'),1, "",88, $this->ReadPropertyBoolean('getIDSbool') == true);
 			$this->MaintainVariable('getTMZ', $this->Translate('getTMZ'),1, "",89, $this->ReadPropertyBoolean('getTMZbool') == true);
-			
+			$this->MaintainVariable('getCND', $this->Translate('water conductivity'),1, "WaterManagement.Conductivity",90, $this->ReadPropertyBoolean('getCNDbool') == true);
+			$this->MaintainVariable('getCND2', $this->Translate('water hardness level'),1, "WaterManagement.Hardness",91, $this->ReadPropertyBoolean('getCND2bool') == true);
+
 			$this->MaintainVariable('getLOCK', $this->Translate('lock or unlock valve'),1, "WaterManagement.Valve",90, $this->ReadPropertyBoolean('getLOCKbool') == true);
 			$this->MaintainVariable('getPROFILESW', $this->Translate('switch active profile'),1, "WaterManagement.Profile",91, $this->ReadPropertyBoolean('getPROFILESWbool') == true);
 
@@ -392,6 +416,16 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 				IPS_DeleteVariableProfile("WaterManagement.Liter");
 			}
 
+			if  ( ((!$this->ReadPropertyBoolean('getCNDbool')) AND (@IPS_VariableProfileExists("WaterManagement.Conductivity")) ))
+			{
+				IPS_DeleteVariableProfile("WaterManagement.Conductivity");
+			}
+
+			if  ( ((!$this->ReadPropertyBoolean('getCND2bool')) AND (@IPS_VariableProfileExists("WaterManagement.Hardness")) ))
+			{
+				IPS_DeleteVariableProfile("WaterManagement.Hardness");
+			}
+
 			if  ($this->ReadPropertyBoolean('getLOCKbool') )
 			{
 				$this->EnableAction('getLOCK');
@@ -399,6 +433,11 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 			if  ($this->ReadPropertyBoolean('getPROFILESWbool') )
 			{
 				$this->EnableAction('getPROFILESW');
+			}
+
+			if (!$this->ReadPropertyBoolean('getCNDbool') )
+			{
+				$this->UnregisterVariable("getCND2");
 			}
 			########################
 
@@ -465,7 +504,10 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 				$jsonForm["elements"][5]["items"][5]["visible"] = true;
 				$jsonForm["elements"][5]["items"][6]["visible"] = true;
 				$jsonForm["elements"][5]["items"][7]["visible"] = true;
-				
+				$jsonForm["elements"][5]["items"][8]["visible"] = true;
+				$jsonForm["elements"][5]["items"][9]["visible"] = true;
+				$jsonForm["elements"][5]["items"][10]["visible"] = true;
+
 				$jsonForm["elements"][6]["items"][78]["visible"] = true;
 				$jsonForm["elements"][6]["items"][80]["visible"] = true;
 
@@ -477,7 +519,10 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 				$jsonForm["elements"][6]["items"][89]["visible"] = true;
 				$jsonForm["elements"][6]["items"][90]["visible"] = true;
 				$jsonForm["elements"][6]["items"][91]["visible"] = true;
-
+				if ($this->ReadPropertyBoolean('getCNDbool') )
+				{
+					$jsonForm["elements"][5]["items"][6]["enabled"] = true;
+				}
 			}
 			
 			return json_encode($jsonForm);
@@ -486,6 +531,7 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 		public function UpdateData()
 		{
 			$Data = $this->GetAllData();
+			$Data += $this->GetOneData("CND"); // water water conductivity level must be get separately	
 
 			// check if User want to create Variable and if match with received Data, then set the value.
 
@@ -516,15 +562,51 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 						case 'getDOM':
 						case 'getDPL':
 						case 'getDTC':
+						case 'getCND':
 							if ($value == "ERROR: ADM"){
 								exit;
 							}
 							break;
 					}
+
+					// if you want to see dH (deutsche Härtegrad) you need to recalculate mikrosiemens Value from getCND and divide it with 30.
+					// see here: https://info.hannainst.de/parameter/leitfaehigkeit-erklaert
+					if ($key == "getCND"){
+						$valueCND=$value/"30"; 
+						if ($this->ReadPropertyBoolean('getCND2bool'))
+							{
+								setValue($this->GetIDForIdent('getCND2'), $valueCND);
+							}
+						}
+
 						setValue($this->GetIDForIdent(''.$key.''), $value);
+						//echo $key."=".$value."\n";
 				}
 			}		
 		}	
+
+
+		public function GetOneData(string $key)
+		{
+			$adminmodeenable	= $this->ReadAttributeBoolean('AdminMode');
+			$ipaddress	 		= $this->ReadPropertyString('IPAddress');
+			$modell				= $this->ReadAttributeString('URI');
+			$uri       			= 'http://'.$ipaddress.':5333/'.$modell.'/get/'.$key.'';
+
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $uri);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+			$response = curl_exec($ch);
+			$curl_error = curl_error($ch);
+			curl_close($ch);
+			if (empty($response) || $response === false || !empty($curl_error)) {
+				$this->SendDebug(__FUNCTION__, 'no response from device' . $curl_error, 0);
+				return false;
+			}
+			$responseData = json_decode($response, TRUE);
+			return $responseData;	
+		}
+
 
 		public function GetAllData()
 		{
@@ -626,5 +708,11 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 			$this->WriteAttributeBoolean('AdminMode', false);
 
 		}
+
+		public function ChangeFormField(string $Field, string $Parameter, string $Value) 
+		{
+            $this->UpdateFormField($Field, $Parameter, $Value);
+        }
+
 
 }

@@ -6,7 +6,7 @@
             "Intervall in sec. , 0 to deactive automatic": "Intervall in sek. , 0 deaktivert die Automatik",
             "Timer is deactivated, please reload Data manually!":"Timer wurde deaktivert, bitte holen Sie die Daten manuell ab!",
             "Enable Admin mode, with enabled Admin mode you see more Data and have write access.": "Aktiviere Admin Modus, mit aktivierten Admin Modus erhalten Sie mehr Daten und haben Schreibzugriff.",
-            "Choose which variable you want to create:": "Wählen Sie aus, welche Variablen Sie anzeigen möchten:",
+            "Choose which optional variables you want to create:": "Wählen Sie aus, welche zusätzlichen Variablen Sie anzeigen möchten:",
             "Choose which default variable you want to create:": "Wählen Sie aus, welche Standardvariablen Sie anzeigen möchten:",
             "instance is active": "Instanz ist aktiv",
             "timer deactivated!": "Timer deaktiviert!",
@@ -83,10 +83,18 @@
             "clear Alarm": "lösche Alarm",
             "current alarm": "aktueller Alarm",
             "water pressure": "Wasserdruck",
-            "WiFi RSSI": "WiFi RSSI",
+            "water hardness level": "Wasserhärtegrad",
+            "water conductivity": "Wasserleitfähigkeit",
             "switchable actions": "steuerbare Aktionen",
             "will be closed": "wird verschlossen",
-            "will be opened": "wird geöffnet"
+            "will be opened": "wird geöffnet",
+            "very soft": "sehr weich",
+            "soft": "weich",
+            "slightly hard": "leicht hart",
+            "moderatly hard": "mäßig hart",
+            "hard": "hart",
+            "very hard": "sehr hart",
+            "Unknown variables":"unbekannte Variablen"
         }
     }
 }

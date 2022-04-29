@@ -38,9 +38,29 @@
             "items": [
                 {
                     "type": "CheckBox",
-                    "caption": "active profile",
-                    "name": "getPRFbool"
-                },
+                    "caption": "active profile name",
+                    "name": "getPNbool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "water volume",
+                    "name": "getPVbool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "permanent water withdrawal",
+                    "name": "getPTbool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "water flow l/h",
+                    "name": "getPFbool"
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "micro leak detection",
+                    "name": "getPMbool"
+                 },
                 {
                     "type": "CheckBox",
                     "caption": "Valvestate",
@@ -141,363 +161,6 @@
                  },
                  {
                     "type": "Label",
-                    "caption": "--- Profiles ---"
-                 },
-                 {
-                    "type": "Label",
-                    "caption": "Profile 1"
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "Standardprofil",
-                    "name": "getPRNbool",
-                    "visible": false
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "present",
-                    "name": "getPN1bool"
-                 },
-                
-                {
-                    "type": "CheckBox",
-                    "caption": "water volume, profile 1",
-                    "name": "getPV1bool"
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "permanent water withdrawal, profile 1",
-                    "name": "getPT1bool"
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "water flow l/h, profile 1",
-                    "name": "getPF1bool"
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "micro leak detection, profile 1",
-                    "name": "getPM1bool"
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "getPR1",
-                    "name": "getPR1bool",
-                    "visible": false
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "getPB1",
-                    "name": "getPB1bool",
-                    "visible": false
-                 },
-                 {
-                    "type": "Label",
-                    "caption": "Profile 2"
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "absent",
-                    "name": "getPN2bool"
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "water volume, profile 2",
-                    "name": "getPV2bool"
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "permanent water withdrawal, profile 2",
-                    "name": "getPT2bool"
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "water flow l/h, profile 2",
-                    "name": "getPF2bool"
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "micro leak detection, profile 2",
-                    "name": "getPM2bool"
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "getPR2",
-                    "name": "getPR2bool",
-                    "visible": false
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "getPB2",
-                    "name": "getPB2bool",
-                    "visible": false
-                 },
-                 {
-                    "type": "Label",
-                    "caption": "Profile 3"
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "holiday",
-                    "name": "getPN3bool"
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "water volume, profile 3",
-                    "name": "getPV3bool"
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "permanent water withdrawal, profile 3",
-                    "name": "getPT3bool"
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "water flow l/h, profile 3",
-                    "name": "getPF3bool"
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "micro leak detection, profile 3",
-                    "name": "getPM3bool"
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "getPR3",
-                    "name": "getPR3bool",
-                    "visible": false
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "getPB3",
-                    "name": "getPB3bool",
-                    "visible": false
-                 },
-                 {
-                    "type": "Label",
-                    "caption": "Profile 4"
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "increased consumption",
-                    "name": "getPN4bool"
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "water volume, profile 4",
-                    "name": "getPV4bool"
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "permanent water withdrawal, profile 4",
-                    "name": "getPT4bool"
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "water flow l/h, profile 4",
-                    "name": "getPF4bool"
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "micro leak detection, profile 4",
-                    "name": "getPM4bool"
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "getPR4",
-                    "name": "getPR4bool",
-                    "visible": false
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "getPB4",
-                    "name": "getPB4bool",
-                    "visible": false
-                 },
-                 {
-                    "type": "Label",
-                    "caption": "Profile 5"
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "max consumption",
-                    "name": "getPN5bool"
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "water volume, profile 5",
-                    "name": "getPV5bool"
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "permanent water withdrawal, profile 5",
-                    "name": "getPT5bool"
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "water flow l/h, profile 5",
-                    "name": "getPF5bool"
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "micro leak detection, profile 5",
-                    "name": "getPM5bool"
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "getPR5",
-                    "name": "getPR5bool",
-                    "visible": false
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "getPB5",
-                    "name": "getPB5bool",
-                    "visible": false
-                 },                 
-                 {
-                    "type": "Label",
-                    "caption": "Profile 6",
-                    "visible": false
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "free profile 6",
-                    "name": "getPN6bool",
-                    "visible": false
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "water volume, profile 6",
-                    "name": "getPV6bool",
-                    "visible": false
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "permanent water withdrawal, profile 6",
-                    "name": "getPT6bool",
-                    "visible": false
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "water flow l/h, profile 6",
-                    "name": "getPF6bool",
-                    "visible": false
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "micro leak detection, profile 6",
-                    "name": "getPM6bool",
-                    "visible": false
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "getPR6",
-                    "name": "getPR6bool",
-                    "visible": false
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "getPB6",
-                    "name": "getPB6bool",
-                    "visible": false
-                 },
-                 {
-                    "type": "Label",
-                    "caption": "Profile 7",
-                    "visible": false
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "free profile 7",
-                    "name": "getPN7bool",
-                    "visible": false
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "water volume, profile 7",
-                    "name": "getPV7bool",
-                    "visible": false
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "permanent water withdrawal, profile 7",
-                    "name": "getPT7bool",
-                    "visible": false
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "water flow l/h, profile 7",
-                    "name": "getPF7bool",
-                    "visible": false
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "micro leak detection, profile 7",
-                    "name": "getPM7bool",
-                    "visible": false
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "getPR7",
-                    "name": "getPR7bool",
-                    "visible": false
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "getPB7",
-                    "name": "getPB7bool",
-                    "visible": false
-                 },
-                 {
-                    "type": "Label",
-                    "caption": "Profile 8",
-                    "visible": false
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "free profile 8",
-                    "name": "getPN8bool",
-                    "visible": false
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "water volume, profile 8",
-                    "name": "getPV8bool",
-                    "visible": false
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "permanent water withdrawal, profile 8",
-                    "name": "getPT8bool",
-                    "visible": false
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "water flow l/h, profile 8",
-                    "name": "getPF8bool",
-                    "visible": false
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "micro leak detection, profile 8",
-                    "name": "getPM8bool",
-                    "visible": false
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "getPR8",
-                    "name": "getPR8bool",
-                    "visible": false
-                 },
-                {
-                    "type": "CheckBox",
-                    "caption": "getPB8",
-                    "name": "getPB8bool",
-                    "visible": false
-                 },
-                 {
-                    "type": "Label",
                     "caption": "information variablen"
                  },
                  {
@@ -505,34 +168,44 @@
                     "caption": "last update",
                     "name": "getRTCbool"
                  },
-
+                 {
+                    "type": "CheckBox",
+                    "caption": "current alarm",
+                    "name": "getALAbool"
+                 },
                  {
                     "type": "Label",
                     "caption": "Unknown variables"
+                 },
+                 {
+                    "type": "CheckBox",
+                    "caption": "getPR",
+                    "name": "getPRbool",
+                    "visible": false
+                 },
+                {
+                    "type": "CheckBox",
+                    "caption": "getPB",
+                    "name": "getPBbool",
+                    "visible": false
                  },
                 {
                     "type": "CheckBox",
                     "caption": "getTMP",
                     "name": "getTMPbool"
                  },
-               
                 {
                     "type": "CheckBox",
                     "caption": "getCEL",
                     "name": "getCELbool"
                  },
-
                 {
                     "type": "CheckBox",
                     "caption": "getNPS",
                     "name": "getNPSbool",
                     "visible": false
                  },
-                {
-                    "type": "CheckBox",
-                    "caption": "current alarm",
-                    "name": "getALAbool"
-                 },
+
                 {
                     "type": "CheckBox",
                     "caption": "getALM",
@@ -549,7 +222,6 @@
                     "caption": "getAVO",
                     "name": "getAVObool"
                  },
-
                 {
                     "type": "CheckBox",
                     "caption": "get71",

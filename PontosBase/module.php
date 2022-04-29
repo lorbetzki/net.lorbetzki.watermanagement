@@ -27,122 +27,22 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 			$this->RegisterPropertyBoolean('getCNObool', false);
 			$this->RegisterPropertystring('getMAC', '');
 			$this->RegisterPropertyBoolean('getMACbool', false);
-			$this->RegisterPropertyInteger('getPRF', 0);
-			$this->RegisterPropertyBoolean('getPRFbool', false);
-			$this->RegisterPropertyInteger('getPRN', 0);
-			$this->RegisterPropertyBoolean('getPRNbool', false);
-			$this->RegisterPropertystring('getPN1', '');
-			$this->RegisterPropertyBoolean('getPN1bool', false);
-			$this->RegisterPropertyInteger('getPV1', 0);
-			$this->RegisterPropertyBoolean('getPV1bool', false);
-			$this->RegisterPropertyInteger('getPT1', 0);
-			$this->RegisterPropertyBoolean('getPT1bool', false);
-			$this->RegisterPropertyInteger('getPF1', 0);
-			$this->RegisterPropertyBoolean('getPF1bool', false);
-			$this->RegisterPropertyInteger('getPM1', 0);
-			$this->RegisterPropertyBoolean('getPM1bool', false);
-			$this->RegisterPropertyInteger('getPR1', 0);
-			$this->RegisterPropertyBoolean('getPR1bool', false);
-			$this->RegisterPropertyInteger('getPB1', 0);
-			$this->RegisterPropertyBoolean('getPB1bool', false);
-			$this->RegisterPropertystring('getPN2', '');
-			$this->RegisterPropertyBoolean('getPN2bool', false);
-			$this->RegisterPropertyInteger('getPV2', 0);
-			$this->RegisterPropertyBoolean('getPV2bool', false);
-			$this->RegisterPropertyInteger('getPT2', 0);
-			$this->RegisterPropertyBoolean('getPT2bool', false);
-			$this->RegisterPropertyInteger('getPF2', 0);
-			$this->RegisterPropertyBoolean('getPF2bool', false);
-			$this->RegisterPropertyInteger('getPM2', 0);
-			$this->RegisterPropertyBoolean('getPM2bool', false);
-			$this->RegisterPropertyInteger('getPR2', 0);
-			$this->RegisterPropertyBoolean('getPR2bool', false);
-			$this->RegisterPropertyInteger('getPB2', 0);
-			$this->RegisterPropertyBoolean('getPB2bool', false);
-			$this->RegisterPropertystring('getPN3', '');
-			$this->RegisterPropertyBoolean('getPN3bool', false);
-			$this->RegisterPropertyInteger('getPV3', 0);
-			$this->RegisterPropertyBoolean('getPV3bool', false);
-			$this->RegisterPropertyInteger('getPT3', 0);
-			$this->RegisterPropertyBoolean('getPT3bool', false);
-			$this->RegisterPropertyInteger('getPF3', 0);
-			$this->RegisterPropertyBoolean('getPF3bool', false);
-			$this->RegisterPropertyInteger('getPM3', 0);
-			$this->RegisterPropertyBoolean('getPM3bool', false);
-			$this->RegisterPropertyInteger('getPR3', 0);
-			$this->RegisterPropertyBoolean('getPR3bool', false);
-			$this->RegisterPropertyInteger('getPB3', 0);
-			$this->RegisterPropertyBoolean('getPB3bool', false);
-			$this->RegisterPropertystring('getPN4', '');
-			$this->RegisterPropertyBoolean('getPN4bool', false);
-			$this->RegisterPropertyInteger('getPV4', 0);
-			$this->RegisterPropertyBoolean('getPV4bool', false);
-			$this->RegisterPropertyInteger('getPT4', 0);
-			$this->RegisterPropertyBoolean('getPT4bool', false);
-			$this->RegisterPropertyInteger('getPF4', 0);
-			$this->RegisterPropertyBoolean('getPF4bool', false);
-			$this->RegisterPropertyInteger('getPM4', 0);
-			$this->RegisterPropertyBoolean('getPM4bool', false);
-			$this->RegisterPropertyInteger('getPR4', 0);
-			$this->RegisterPropertyBoolean('getPR4bool', false);
-			$this->RegisterPropertyInteger('getPB4', 0);
-			$this->RegisterPropertyBoolean('getPB4bool', false);
-			$this->RegisterPropertystring('getPN5', '');
-			$this->RegisterPropertyBoolean('getPN5bool', false);
-			$this->RegisterPropertyInteger('getPV5', 0);
-			$this->RegisterPropertyBoolean('getPV5bool', false);
-			$this->RegisterPropertyInteger('getPT5', 0);
-			$this->RegisterPropertyBoolean('getPT5bool', false);
-			$this->RegisterPropertyInteger('getPF5', 0);
-			$this->RegisterPropertyBoolean('getPF5bool', false);
-			$this->RegisterPropertyInteger('getPM5', 0);
-			$this->RegisterPropertyBoolean('getPM5bool', false);
-			$this->RegisterPropertyInteger('getPR5', 0);
-			$this->RegisterPropertyBoolean('getPR5bool', false);
-			$this->RegisterPropertyInteger('getPB5', 0);
-			$this->RegisterPropertyBoolean('getPB5bool', false);
-			$this->RegisterPropertystring('getPN6', '');
-			$this->RegisterPropertyBoolean('getPN6bool', false);
-			$this->RegisterPropertyInteger('getPV6', 0);
-			$this->RegisterPropertyBoolean('getPV6bool', false);
-			$this->RegisterPropertyInteger('getPT6', 0);
-			$this->RegisterPropertyBoolean('getPT6bool', false);
-			$this->RegisterPropertyInteger('getPF6', 0);
-			$this->RegisterPropertyBoolean('getPF6bool', false);
-			$this->RegisterPropertyInteger('getPM6', 0);
-			$this->RegisterPropertyBoolean('getPM6bool', false);
-			$this->RegisterPropertyInteger('getPR6', 0);
-			$this->RegisterPropertyBoolean('getPR6bool', false);
-			$this->RegisterPropertyInteger('getPB6', 0);
-			$this->RegisterPropertyBoolean('getPB6bool', false);
-			$this->RegisterPropertystring('getPN7', '');
-			$this->RegisterPropertyBoolean('getPN7bool', false);
-			$this->RegisterPropertyInteger('getPV7', 0);
-			$this->RegisterPropertyBoolean('getPV7bool', false);
-			$this->RegisterPropertyInteger('getPT7', 0);
-			$this->RegisterPropertyBoolean('getPT7bool', false);
-			$this->RegisterPropertyInteger('getPF7', 0);
-			$this->RegisterPropertyBoolean('getPF7bool', false);
-			$this->RegisterPropertyInteger('getPM7', 0);
-			$this->RegisterPropertyBoolean('getPM7bool', false);
-			$this->RegisterPropertyInteger('getPR7', 0);
-			$this->RegisterPropertyBoolean('getPR7bool', false);
-			$this->RegisterPropertyInteger('getPB7', 0);
-			$this->RegisterPropertyBoolean('getPB7bool', false);
-			$this->RegisterPropertystring('getPN8', '');
-			$this->RegisterPropertyBoolean('getPN8bool', false);
-			$this->RegisterPropertyInteger('getPV8', 0);
-			$this->RegisterPropertyBoolean('getPV8bool', false);
-			$this->RegisterPropertyInteger('getPT8', 0);
-			$this->RegisterPropertyBoolean('getPT8bool', false);
-			$this->RegisterPropertyInteger('getPF8', 0);
-			$this->RegisterPropertyBoolean('getPF8bool', false);
-			$this->RegisterPropertyInteger('getPM8', 0);
-			$this->RegisterPropertyBoolean('getPM8bool', false);
-			$this->RegisterPropertyInteger('getPR8', 0);
-			$this->RegisterPropertyBoolean('getPR8bool', false);
-			$this->RegisterPropertyInteger('getPB8', 0);
-			$this->RegisterPropertyBoolean('getPB8bool', false);
+
+			$this->RegisterPropertystring('getPN', '');
+			$this->RegisterPropertyBoolean('getPNbool', false);
+			$this->RegisterPropertyInteger('getPV', 0);
+			$this->RegisterPropertyBoolean('getPVbool', false);
+			$this->RegisterPropertyInteger('getPT', 0);
+			$this->RegisterPropertyBoolean('getPTbool', false);
+			$this->RegisterPropertyInteger('getPF', 0);
+			$this->RegisterPropertyBoolean('getPFbool', false);
+			$this->RegisterPropertyInteger('getPM', 0);
+			$this->RegisterPropertyBoolean('getPMbool', false);
+			$this->RegisterPropertyInteger('getPR', 0);
+			$this->RegisterPropertyBoolean('getPRbool', false);
+			$this->RegisterPropertyInteger('getPB', 0);
+			$this->RegisterPropertyBoolean('getPBbool', false);
+
 			$this->RegisterPropertyInteger('getTMP', 0);
 			$this->RegisterPropertyBoolean('getTMPbool', false);
 			$this->RegisterPropertyInteger('getVLV', 0);
@@ -293,82 +193,38 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 			}
 			############################### 
 
-			$this->MaintainVariable('getSRN', $this->Translate('Serial-no.'),1, "",0, $this->ReadPropertyBoolean('getSRNbool') == true);
-			$this->MaintainVariable('getVER', $this->Translate('Firmware Version'),3, "",1, $this->ReadPropertyBoolean('getVERbool') == true);
-			$this->MaintainVariable('getTYP', $this->Translate('Type'),1, "",2, $this->ReadPropertyBoolean('getTYPbool') == true);
-			$this->MaintainVariable('getCNO', $this->Translate('Code-no.'),3, "",3, $this->ReadPropertyBoolean('getCNObool') == true);
-			$this->MaintainVariable('getMAC', $this->Translate('MAC Address'),3, "",4, $this->ReadPropertyBoolean('getMACbool') == true);
-			$this->MaintainVariable('getPRF', $this->Translate('active profile'),1, "WaterManagement.Profile",5, $this->ReadPropertyBoolean('getPRFbool') == true);
-			$this->MaintainVariable('getPRN', $this->Translate('Standardprofil'),1, "",6, $this->ReadPropertyBoolean('getPRNbool') == true);
-			$this->MaintainVariable('getPN1', $this->Translate('present'),3, "",7, $this->ReadPropertyBoolean('getPN1bool') == true);
-			$this->MaintainVariable('getPV1', $this->Translate('water volume, profile 1'),1, "",8, $this->ReadPropertyBoolean('getPV1bool') == true);
-			$this->MaintainVariable('getPT1', $this->Translate('permanent water withdrawal, profile 1'),1, "",9, $this->ReadPropertyBoolean('getPT1bool') == true);
-			$this->MaintainVariable('getPF1', $this->Translate('water flow l/h, profile 1'),1, "",10, $this->ReadPropertyBoolean('getPF1bool') == true);
-			$this->MaintainVariable('getPM1', $this->Translate('micro leak detection, profile 1'),1, "",11, $this->ReadPropertyBoolean('getPM1bool') == true);
-			$this->MaintainVariable('getPR1', $this->Translate('getPR1'),1, "",12, $this->ReadPropertyBoolean('getPR1bool') == true);
-			$this->MaintainVariable('getPB1', $this->Translate('getPB1'),1, "",13, $this->ReadPropertyBoolean('getPB1bool') == true);
-			$this->MaintainVariable('getPN2', $this->Translate('absent'),3, "",14, $this->ReadPropertyBoolean('getPN2bool') == true);
-			$this->MaintainVariable('getPV2', $this->Translate('water volume, profile 2'),1, "",15, $this->ReadPropertyBoolean('getPV2bool') == true);
-			$this->MaintainVariable('getPT2', $this->Translate('permanent water withdrawal, profile 2'),1, "",16, $this->ReadPropertyBoolean('getPT2bool') == true);
-			$this->MaintainVariable('getPF2', $this->Translate('water flow l/h, profile 2'),1, "",17, $this->ReadPropertyBoolean('getPF2bool') == true);
-			$this->MaintainVariable('getPM2', $this->Translate('micro leak detection, profile 2'),1, "",18, $this->ReadPropertyBoolean('getPM2bool') == true);
-			$this->MaintainVariable('getPR2', $this->Translate('getPR2'),1, "",19, $this->ReadPropertyBoolean('getPR2bool') == true);
-			$this->MaintainVariable('getPB2', $this->Translate('getPB2'),1, "",20, $this->ReadPropertyBoolean('getPB2bool') == true);
-			$this->MaintainVariable('getPN3', $this->Translate('holiday'),3, "",21, $this->ReadPropertyBoolean('getPN3bool') == true);
-			$this->MaintainVariable('getPV3', $this->Translate('water volume, profile 3'),1, "",22, $this->ReadPropertyBoolean('getPV3bool') == true);
-			$this->MaintainVariable('getPT3', $this->Translate('permanent water withdrawal, profile 3'),1, "",23, $this->ReadPropertyBoolean('getPT3bool') == true);
-			$this->MaintainVariable('getPF3', $this->Translate('water flow l/h, profile 3'),1, "",24, $this->ReadPropertyBoolean('getPF3bool') == true);
-			$this->MaintainVariable('getPM3', $this->Translate('micro leak detection, profile 3'),1, "",25, $this->ReadPropertyBoolean('getPM3bool') == true);
-			$this->MaintainVariable('getPR3', $this->Translate('getPR3'),1, "",26, $this->ReadPropertyBoolean('getPR3bool') == true);
-			$this->MaintainVariable('getPB3', $this->Translate('getPB3'),1, "",27, $this->ReadPropertyBoolean('getPB3bool') == true);
-			$this->MaintainVariable('getPN4', $this->Translate('increased consumption'),3, "",28, $this->ReadPropertyBoolean('getPN4bool') == true);
-			$this->MaintainVariable('getPV4', $this->Translate('water volume, profile 4'),1, "",29, $this->ReadPropertyBoolean('getPV4bool') == true);
-			$this->MaintainVariable('getPT4', $this->Translate('permanent water withdrawal, profile 4'),1, "",30, $this->ReadPropertyBoolean('getPT4bool') == true);
-			$this->MaintainVariable('getPF4', $this->Translate('water flow l/h, profile 4'),1, "",31, $this->ReadPropertyBoolean('getPF4bool') == true);
-			$this->MaintainVariable('getPM4', $this->Translate('micro leak detection, profile 4'),1, "",32, $this->ReadPropertyBoolean('getPM4bool') == true);
-			$this->MaintainVariable('getPR4', $this->Translate('getPR4'),1, "",33, $this->ReadPropertyBoolean('getPR4bool') == true);
-			$this->MaintainVariable('getPB4', $this->Translate('getPB4'),1, "",34, $this->ReadPropertyBoolean('getPB4bool') == true);
-			$this->MaintainVariable('getPN5', $this->Translate('max consumption'),3, "",35, $this->ReadPropertyBoolean('getPN5bool') == true);
-			$this->MaintainVariable('getPV5', $this->Translate('water volume, profile 5'),1, "",36, $this->ReadPropertyBoolean('getPV5bool') == true);
-			$this->MaintainVariable('getPT5', $this->Translate('permanent water withdrawal, profile 5'),1, "",37, $this->ReadPropertyBoolean('getPT5bool') == true);
-			$this->MaintainVariable('getPF5', $this->Translate('water flow l/h, profile 5'),1, "",38, $this->ReadPropertyBoolean('getPF5bool') == true);
-			$this->MaintainVariable('getPM5', $this->Translate('micro leak detection, profile 5'),1, "",39, $this->ReadPropertyBoolean('getPM5bool') == true);
-			$this->MaintainVariable('getPR5', $this->Translate('getPR5'),1, "",40, $this->ReadPropertyBoolean('getPR5bool') == true);
-			$this->MaintainVariable('getPB5', $this->Translate('getPB5'),1, "",41, $this->ReadPropertyBoolean('getPB5bool') == true);
-			$this->MaintainVariable('getPN6', $this->Translate('free profile 6'),3, "",42, $this->ReadPropertyBoolean('getPN6bool') == true);
-			$this->MaintainVariable('getPV6', $this->Translate('water volume, profile 6'),1, "",43, $this->ReadPropertyBoolean('getPV6bool') == true);
-			$this->MaintainVariable('getPT6', $this->Translate('permanent water withdrawal, profile 6'),1, "",44, $this->ReadPropertyBoolean('getPT6bool') == true);
-			$this->MaintainVariable('getPF6', $this->Translate('water flow l/h, profile 6'),1, "",45, $this->ReadPropertyBoolean('getPF6bool') == true);
-			$this->MaintainVariable('getPM6', $this->Translate('micro leak detection, profile 6'),1, "",46, $this->ReadPropertyBoolean('getPM6bool') == true);
-			$this->MaintainVariable('getPR6', $this->Translate('getPR6'),1, "",47, $this->ReadPropertyBoolean('getPR6bool') == true);
-			$this->MaintainVariable('getPB6', $this->Translate('getPB6'),1, "",48, $this->ReadPropertyBoolean('getPB6bool') == true);
-			$this->MaintainVariable('getPN7', $this->Translate('free profile 7'),3, "",49, $this->ReadPropertyBoolean('getPN7bool') == true);
-			$this->MaintainVariable('getPV7', $this->Translate('water volume, profile 7'),1, "",50, $this->ReadPropertyBoolean('getPV7bool') == true);
-			$this->MaintainVariable('getPT7', $this->Translate('permanent water withdrawal, profile 7'),1, "",51, $this->ReadPropertyBoolean('getPT7bool') == true);
-			$this->MaintainVariable('getPF7', $this->Translate('water flow l/h, profile 7'),1, "",52, $this->ReadPropertyBoolean('getPF7bool') == true);
-			$this->MaintainVariable('getPM7', $this->Translate('micro leak detection, profile 7'),1, "",53, $this->ReadPropertyBoolean('getPM7bool') == true);
-			$this->MaintainVariable('getPR7', $this->Translate('getPR7'),1, "",54, $this->ReadPropertyBoolean('getPR7bool') == true);
-			$this->MaintainVariable('getPB7', $this->Translate('getPB7'),1, "",55, $this->ReadPropertyBoolean('getPB7bool') == true);
-			$this->MaintainVariable('getPN8', $this->Translate('free profile 8'),3, "",56, $this->ReadPropertyBoolean('getPN8bool') == true);
-			$this->MaintainVariable('getPV8', $this->Translate('water volume, profile 8'),1, "",57, $this->ReadPropertyBoolean('getPV8bool') == true);
-			$this->MaintainVariable('getPT8', $this->Translate('permanent water withdrawal, profile 8'),1, "",58, $this->ReadPropertyBoolean('getPT8bool') == true);
-			$this->MaintainVariable('getPF8', $this->Translate('water flow l/h, profile 8'),1, "",59, $this->ReadPropertyBoolean('getPF8bool') == true);
-			$this->MaintainVariable('getPM8', $this->Translate('micro leak detection, profile 8'),1, "",60, $this->ReadPropertyBoolean('getPM8bool') == true);
-			$this->MaintainVariable('getPR8', $this->Translate('getPR8'),1, "",61, $this->ReadPropertyBoolean('getPR8bool') == true);
-			$this->MaintainVariable('getPB8', $this->Translate('getPB8'),1, "",62, $this->ReadPropertyBoolean('getPB8bool') == true);
+			$this->MaintainVariable('getPN', $this->Translate('active profile'),3, "",1, $this->ReadPropertyBoolean('getPNbool') == true);
+
+			$this->MaintainVariable('getPV', $this->Translate('water volume'),1, "",2, $this->ReadPropertyBoolean('getPVbool') == true);
+			$this->MaintainVariable('getPT', $this->Translate('permanent water withdrawal'),1, "",3, $this->ReadPropertyBoolean('getPTbool') == true);
+			$this->MaintainVariable('getPF', $this->Translate('water flow l/h'),1, "",4, $this->ReadPropertyBoolean('getPFbool') == true);
+			$this->MaintainVariable('getPM', $this->Translate('micro leak detection'),0, "~Switch",5, $this->ReadPropertyBoolean('getPMbool') == true);
+			$this->MaintainVariable('getVLV', $this->Translate('Valvestate'),1, "WaterManagement.Valve",6, $this->ReadPropertyBoolean('getVLVbool') == true);
+			$this->MaintainVariable('getVOL', $this->Translate('total volume in liters'),1, "WaterManagement.Liter",7, $this->ReadPropertyBoolean('getVOLbool') == true);
+			$this->MaintainVariable('getBAT', $this->Translate('battery voltage'),2, "~Volt",8, $this->ReadPropertyBoolean('getBATbool') == true);
+			$this->MaintainVariable('getNET', $this->Translate('water temperature'),2, "~Temperature",9, $this->ReadPropertyBoolean('getNETbool') == true);
+			$this->MaintainVariable('getCND', $this->Translate('water conductivity'),1, "WaterManagement.Conductivity",10, $this->ReadPropertyBoolean('getCNDbool') == true);
+			$this->MaintainVariable('getCND2', $this->Translate('water hardness level'),1, "WaterManagement.Hardness",11, $this->ReadPropertyBoolean('getCND2bool') == true);
+			$this->MaintainVariable('getBAR', $this->Translate('water pressure'),1, "WaterManagement.Mbar",12, $this->ReadPropertyBoolean('getBARbool') == true);
+
+			$this->MaintainVariable('getSRN', $this->Translate('Serial-no.'),1, "",20, $this->ReadPropertyBoolean('getSRNbool') == true);
+			$this->MaintainVariable('getVER', $this->Translate('Firmware Version'),3, "",21, $this->ReadPropertyBoolean('getVERbool') == true);
+			$this->MaintainVariable('getTYP', $this->Translate('Type'),1, "",22, $this->ReadPropertyBoolean('getTYPbool') == true);
+			$this->MaintainVariable('getCNO', $this->Translate('Code-no.'),3, "",23, $this->ReadPropertyBoolean('getCNObool') == true);
+			$this->MaintainVariable('getMAC', $this->Translate('MAC Address'),3, "",24, $this->ReadPropertyBoolean('getMACbool') == true);
+			$this->MaintainVariable('getRTC', $this->Translate('last update'),1, "~UnixTimestamp",25, $this->ReadPropertyBoolean('getRTCbool') == true);
+			$this->MaintainVariable('getALA', $this->Translate('current alarm'),3, "",26, $this->ReadPropertyBoolean('getALAbool') == true);
+
+			$this->MaintainVariable('getPR', $this->Translate('getPR'),1, "",61, $this->ReadPropertyBoolean('getPRbool') == true);
+			$this->MaintainVariable('getPB', $this->Translate('getPB'),1, "",62, $this->ReadPropertyBoolean('getPBbool') == true);
+			
 			$this->MaintainVariable('getTMP', $this->Translate('getTMP'),1, "",63, $this->ReadPropertyBoolean('getTMPbool') == true);
-			$this->MaintainVariable('getVLV', $this->Translate('Valvestate'),1, "WaterManagement.Valve",64, $this->ReadPropertyBoolean('getVLVbool') == true);
 			$this->MaintainVariable('getCEL', $this->Translate('getCEL'),1, "",65, $this->ReadPropertyBoolean('getCELbool') == true);
-			$this->MaintainVariable('getBAR', $this->Translate('water pressure'),1, "WaterManagement.Mbar",66, $this->ReadPropertyBoolean('getBARbool') == true);
 			$this->MaintainVariable('getNPS', $this->Translate('getNPS'),1, "",67, $this->ReadPropertyBoolean('getNPSbool') == true);
-			$this->MaintainVariable('getALA', $this->Translate('current alarm'),3, "",68, $this->ReadPropertyBoolean('getALAbool') == true);
 			$this->MaintainVariable('getALM', $this->Translate('getALM'),3, "",69, $this->ReadPropertyBoolean('getALMbool') == true);
 			$this->MaintainVariable('getDMA', $this->Translate('getDMA'),1, "",70, $this->ReadPropertyBoolean('getDMAbool') == true);
 			$this->MaintainVariable('getAVO', $this->Translate('getAVO'),1, "WaterManagement.Mliter",71, $this->ReadPropertyBoolean('getAVObool') == true);
-			$this->MaintainVariable('getVOL', $this->Translate('total volume in liters'),1, "WaterManagement.Liter",72, $this->ReadPropertyBoolean('getVOLbool') == true);
 			$this->MaintainVariable('get71', $this->Translate('get71'),1, "",73, $this->ReadPropertyBoolean('get71bool') == true);
-			$this->MaintainVariable('getBAT', $this->Translate('battery voltage'),2, "~Volt",74, $this->ReadPropertyBoolean('getBATbool') == true);
-			$this->MaintainVariable('getNET', $this->Translate('water temperature'),2, "~Temperature",75, $this->ReadPropertyBoolean('getNETbool') == true);
 			$this->MaintainVariable('getBUZ', $this->Translate('getBUZ'),1, "",76, $this->ReadPropertyBoolean('getBUZbool') == true);
 			$this->MaintainVariable('getDBD', $this->Translate('getDBD'),1, "",77, $this->ReadPropertyBoolean('getDBDbool') == true);
 			$this->MaintainVariable('getDBT', $this->Translate('getDBT'),1, "",78, $this->ReadPropertyBoolean('getDBTbool') == true);
@@ -380,21 +236,14 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 			$this->MaintainVariable('getDRP', $this->Translate('getDRP'),1, "",84, $this->ReadPropertyBoolean('getDRPbool') == true);
 			$this->MaintainVariable('getWFS', $this->Translate('getWFS'),1, "",85, $this->ReadPropertyBoolean('getWFSbool') == true);
 			$this->MaintainVariable('getWFR', $this->Translate('getWFR'),1, "",86, $this->ReadPropertyBoolean('getWFRbool') == true);
-			$this->MaintainVariable('getRTC', $this->Translate('last update'),1, "~UnixTimestamp",87, $this->ReadPropertyBoolean('getRTCbool') == true);
 			$this->MaintainVariable('getIDS', $this->Translate('getIDS'),1, "",88, $this->ReadPropertyBoolean('getIDSbool') == true);
 			$this->MaintainVariable('getTMZ', $this->Translate('getTMZ'),1, "",89, $this->ReadPropertyBoolean('getTMZbool') == true);
-			$this->MaintainVariable('getCND', $this->Translate('water conductivity'),1, "WaterManagement.Conductivity",90, $this->ReadPropertyBoolean('getCNDbool') == true);
-			$this->MaintainVariable('getCND2', $this->Translate('water hardness level'),1, "WaterManagement.Hardness",91, $this->ReadPropertyBoolean('getCND2bool') == true);
-
+			
 			$this->MaintainVariable('getLOCK', $this->Translate('lock or unlock valve'),1, "WaterManagement.Valve",90, $this->ReadPropertyBoolean('getLOCKbool') == true);
 			$this->MaintainVariable('getPROFILESW', $this->Translate('switch active profile'),1, "WaterManagement.Profile",91, $this->ReadPropertyBoolean('getPROFILESWbool') == true);
 
 			######################## 
-			// check if user deactivate Waterprofile and switching profile and delete IPS Profile
-			if  ( ((!$this->ReadPropertyBoolean('getPRFbool')) AND ((!$this->ReadPropertyBoolean('getPROFILESWbool')) AND (@IPS_VariableProfileExists("WaterManagement.Profile")) )))
-			{
-				IPS_DeleteVariableProfile("WaterManagement.Profile");
-			}
+			// check if user deactivate variable with own IPS Profiles and delete them
 
 			if  ( ((!$this->ReadPropertyBoolean('getVLVbool')) AND ((!$this->ReadPropertyBoolean('getLOCKbool')) AND (@IPS_VariableProfileExists("WaterManagement.Valve")) )))
 			{
@@ -499,29 +348,32 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 				$jsonForm["actions"][4]["visible"] = false;
 				$jsonForm["actions"][6]["visible"] = true;
 
-				$jsonForm["elements"][5]["items"][2]["visible"] = true;
-				$jsonForm["elements"][5]["items"][4]["visible"] = true;
-				$jsonForm["elements"][5]["items"][5]["visible"] = true;
 				$jsonForm["elements"][5]["items"][6]["visible"] = true;
-				$jsonForm["elements"][5]["items"][7]["visible"] = true;
 				$jsonForm["elements"][5]["items"][8]["visible"] = true;
 				$jsonForm["elements"][5]["items"][9]["visible"] = true;
+
 				$jsonForm["elements"][5]["items"][10]["visible"] = true;
+				$jsonForm["elements"][5]["items"][11]["visible"] = true;
+				$jsonForm["elements"][5]["items"][12]["visible"] = true;
+				$jsonForm["elements"][5]["items"][13]["visible"] = true;
+				$jsonForm["elements"][5]["items"][14]["visible"] = true;
 
-				$jsonForm["elements"][6]["items"][78]["visible"] = true;
-				$jsonForm["elements"][6]["items"][80]["visible"] = true;
+				$jsonForm["elements"][6]["items"][10]["visible"] = true;
+				$jsonForm["elements"][6]["items"][11]["visible"] = true;
 
-				$jsonForm["elements"][6]["items"][83]["visible"] = true;
-				$jsonForm["elements"][6]["items"][85]["visible"] = true;
-				$jsonForm["elements"][6]["items"][86]["visible"] = true;
-				$jsonForm["elements"][6]["items"][87]["visible"] = true;
-				$jsonForm["elements"][6]["items"][88]["visible"] = true;
-				$jsonForm["elements"][6]["items"][89]["visible"] = true;
-				$jsonForm["elements"][6]["items"][90]["visible"] = true;
-				$jsonForm["elements"][6]["items"][91]["visible"] = true;
+				$jsonForm["elements"][6]["items"][14]["visible"] = true;
+				$jsonForm["elements"][6]["items"][15]["visible"] = true;
+				$jsonForm["elements"][6]["items"][18]["visible"] = true;
+				$jsonForm["elements"][6]["items"][20]["visible"] = true;
+				$jsonForm["elements"][6]["items"][21]["visible"] = true;
+				$jsonForm["elements"][6]["items"][22]["visible"] = true;
+				$jsonForm["elements"][6]["items"][23]["visible"] = true;
+				$jsonForm["elements"][6]["items"][24]["visible"] = true;
+				$jsonForm["elements"][6]["items"][25]["visible"] = true;
+				$jsonForm["elements"][6]["items"][26]["visible"] = true;
 				if ($this->ReadPropertyBoolean('getCNDbool') )
 				{
-					$jsonForm["elements"][5]["items"][6]["enabled"] = true;
+					$jsonForm["elements"][5]["items"][10]["enabled"] = true;
 				}
 			}
 			
@@ -532,11 +384,26 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 		{
 			$Data = $this->GetAllData();
 			$Data += $this->GetOneData("CND"); // water water conductivity level must be get separately	
+			$ActiveProfile = $Data['getPRF']; // get active Profile from DataArray
 
 			// check if User want to create Variable and if match with received Data, then set the value.
 
 			foreach ($Data as $key =>$value) 
 			{
+				// check with profile is activated and fill the variables
+				switch ($key) {
+					case 'getPN'.$ActiveProfile.'':
+					case 'getPV'.$ActiveProfile.'': 
+					case 'getPT'.$ActiveProfile.'':
+					case 'getPF'.$ActiveProfile.'':
+					case 'getPM'.$ActiveProfile.'':
+					case 'getPR'.$ActiveProfile.'':
+					case 'getPB'.$ActiveProfile.'':
+							$key=preg_replace("/[0-9]+/", "", $key); // remove Profileno from received data.
+							//echo $key." - ".$value."\n";
+						break;
+				}
+
 				if (@$this->GetIDForIdent(''.$key.'')) 
 				{
 
@@ -548,7 +415,7 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 								$value=preg_replace("/[^0-9]+/", "", $value);
 							break;
 					}
-
+					// if the user won't enable admin mode, ignore No-Admin Errormessages
 					switch ($key) {
 						case 'getNPS':
 						case 'getALM':
@@ -564,6 +431,7 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 						case 'getDTC':
 						case 'getCND':
 							if ($value == "ERROR: ADM"){
+
 								exit;
 							}
 							break;

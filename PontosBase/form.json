@@ -175,7 +175,8 @@
                  },
                  {
                     "type": "Label",
-                    "caption": "Unknown variables"
+                    "caption": "Unknown variables",
+                    "visible": false
                  },
                  {
                     "type": "CheckBox",
@@ -192,12 +193,14 @@
                 {
                     "type": "CheckBox",
                     "caption": "getTMP",
-                    "name": "getTMPbool"
+                    "name": "getTMPbool",
+                    "visible": false
                  },
                 {
                     "type": "CheckBox",
                     "caption": "getCEL",
-                    "name": "getCELbool"
+                    "name": "getCELbool",
+                    "visible": false
                  },
                 {
                     "type": "CheckBox",
@@ -215,12 +218,14 @@
                 {
                     "type": "CheckBox",
                     "caption": "getDMA",
-                    "name": "getDMAbool"
+                    "name": "getDMAbool",
+                    "visible": false
                  },
                 {
                     "type": "CheckBox",
                     "caption": "getAVO",
-                    "name": "getAVObool"
+                    "name": "getAVObool",
+                    "visible": false
                  },
                 {
                     "type": "CheckBox",
@@ -232,7 +237,8 @@
                 {
                     "type": "CheckBox",
                     "caption": "getBUZ",
-                    "name": "getBUZbool"
+                    "name": "getBUZbool",
+                    "visible": false
                  },
                 {
                     "type": "CheckBox",
@@ -279,28 +285,33 @@
                 {
                     "type": "CheckBox",
                     "caption": "getDRP",
-                    "name": "getDRPbool"
+                    "name": "getDRPbool",
+                    "visible": false
                  },
                 {
                     "type": "CheckBox",
                     "caption": "getWFS",
-                    "name": "getWFSbool"
+                    "name": "getWFSbool",
+                    "visible": false
                  },
                 {
                     "type": "CheckBox",
                     "caption": "getWFR",
-                    "name": "getWFRbool"
+                    "name": "getWFRbool",
+                    "visible": false
                  },
                 
                 {
                     "type": "CheckBox",
                     "caption": "getIDS",
-                    "name": "getIDSbool"
+                    "name": "getIDSbool",
+                    "visible": false
                  },
                 {
                     "type": "CheckBox",
                     "caption": "getTMZ",
-                    "name": "getTMZbool"
+                    "name": "getTMZbool",
+                    "visible": false
                  }                
                 ]
             }

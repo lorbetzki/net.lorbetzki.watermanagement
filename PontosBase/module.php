@@ -16,6 +16,7 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 			$this->RegisterAttributeBoolean('FirstRunDone', false);
 
 			$this->RegisterAttributeBoolean('AdminMode', false);
+			$this->RegisterAttributeBoolean('AdminModeUserActivated', false);
 			
 			$this->RegisterPropertyInteger('getSRN', 0);
 			$this->RegisterPropertyBoolean('getSRNbool', false);
@@ -193,7 +194,7 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 			}
 			############################### 
 
-			$this->MaintainVariable('getPN', $this->Translate('active profile'),3, "",1, $this->ReadPropertyBoolean('getPNbool') == true);
+			$this->MaintainVariable('getPN', $this->Translate('active profile name'),3, "",1, $this->ReadPropertyBoolean('getPNbool') == true);
 
 			$this->MaintainVariable('getPV', $this->Translate('water volume'),1, "",2, $this->ReadPropertyBoolean('getPVbool') == true);
 			$this->MaintainVariable('getPT', $this->Translate('permanent water withdrawal'),1, "",3, $this->ReadPropertyBoolean('getPTbool') == true);
@@ -358,6 +359,8 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 				$jsonForm["elements"][5]["items"][13]["visible"] = true;
 				$jsonForm["elements"][5]["items"][14]["visible"] = true;
 
+				// ADMIN ONLY i created all elements incl. unknown variables... for release hide them
+				/* 
 				$jsonForm["elements"][6]["items"][10]["visible"] = true;
 				$jsonForm["elements"][6]["items"][11]["visible"] = true;
 
@@ -371,12 +374,28 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 				$jsonForm["elements"][6]["items"][24]["visible"] = true;
 				$jsonForm["elements"][6]["items"][25]["visible"] = true;
 				$jsonForm["elements"][6]["items"][26]["visible"] = true;
+				*/
 				if ($this->ReadPropertyBoolean('getCNDbool') )
 				{
 					$jsonForm["elements"][5]["items"][10]["enabled"] = true;
 				}
 			}
-			
+
+			// i created all elements incl. unknown variables... for release hide them
+			/*
+			$jsonForm["elements"][6]["items"][9]["visible"] = true;
+			$jsonForm["elements"][6]["items"][12]["visible"] = true;
+			$jsonForm["elements"][6]["items"][13]["visible"] = true;
+			$jsonForm["elements"][6]["items"][16]["visible"] = true;
+			$jsonForm["elements"][6]["items"][17]["visible"] = true;
+			$jsonForm["elements"][6]["items"][19]["visible"] = true;
+			$jsonForm["elements"][6]["items"][27]["visible"] = true;
+			$jsonForm["elements"][6]["items"][28]["visible"] = true;
+			$jsonForm["elements"][6]["items"][29]["visible"] = true;
+			$jsonForm["elements"][6]["items"][30]["visible"] = true;
+			$jsonForm["elements"][6]["items"][31]["visible"] = true;
+			*/
+
 			return json_encode($jsonForm);
 		}
 
@@ -431,7 +450,7 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 						case 'getDTC':
 						case 'getCND':
 							if ($value == "ERROR: ADM"){
-
+								$value = 0;
 								exit;
 							}
 							break;
@@ -456,10 +475,14 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 
 		public function GetOneData(string $key)
 		{
-			$adminmodeenable	= $this->ReadAttributeBoolean('AdminMode');
+			$AdminMode				= $this->ReadAttributeBoolean('AdminMode');
+			$AdminModeUserActivated = $this->ReadAttributeBoolean('AdminModeUserActivated');
+
 			$ipaddress	 		= $this->ReadPropertyString('IPAddress');
 			$modell				= $this->ReadAttributeString('URI');
 			$uri       			= 'http://'.$ipaddress.':5333/'.$modell.'/get/'.$key.'';
+			
+			if ( ($AdminMode == false) AND ($AdminModeUserActivated == true) ){ $this->WriteSetting('EnableAdminMode', 0); }
 
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL, $uri);
@@ -478,10 +501,14 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 
 		public function GetAllData()
 		{
-			$adminmodeenable	= $this->ReadAttributeBoolean('AdminMode');
+			$AdminMode				= $this->ReadAttributeBoolean('AdminMode');
+			$AdminModeUserActivated = $this->ReadAttributeBoolean('AdminModeUserActivated');
+
 			$ipaddress	 		= $this->ReadPropertyString('IPAddress');
 			$modell				= $this->ReadAttributeString('URI');
 			$uri       			= 'http://'.$ipaddress.':5333/'.$modell.'/get/all';
+            
+			if ( ($AdminMode == false) AND ($AdminModeUserActivated == true) ){ $this->WriteSetting('EnableAdminMode', 0); }
 
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL, $uri);
@@ -501,7 +528,7 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 		// check if admin mode on the device is enable, if not, give user the option to change this
 		public function CheckAdminMode()
 		{
-			$AdminModeStatus = $this->GetAllData();
+			$AdminModeStatus = $this->GetOneData("NPS");
 			//$AdminModeStatus = array('getNPS' => "ERROR: ADM");
 			if ( $AdminModeStatus['getNPS'] == "ERROR: ADM")
 				{
@@ -515,6 +542,7 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 		
 		public function WriteSetting(string $setting, int $value)
 		{
+			$adminmodeenable	= $this->ReadAttributeBoolean('AdminMode');
 			$ipaddress	 		= $this->ReadPropertyString('IPAddress');
 			$modell				= $this->ReadAttributeString('URI');
 			$uri       			= 'http://'.$ipaddress.':5333/'.$modell;
@@ -533,6 +561,7 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 						$uri = $uri."/set/ADM/(2)f";
 						Sys_getURLContent($uri);
 						$this->CheckAdminMode();
+						if ($adminmodeenable == true){ $this->WriteAttributeBoolean('AdminModeUserActivated', true); }
 				break;
 				case 'ClearAlarm':
 					$uri = $uri."/set/clr/ala";
@@ -574,7 +603,7 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 		{
 			$this->WriteAttributeBoolean('FirstRunDone', false);
 			$this->WriteAttributeBoolean('AdminMode', false);
-
+			$this->WriteAttributeBoolean('AdminModeUserActivated', false);
 		}
 
 		public function ChangeFormField(string $Field, string $Parameter, string $Value) 

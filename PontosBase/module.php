@@ -346,7 +346,15 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 			if ($this->ReadAttributeBoolean('AdminMode') )
 			{
 				$jsonForm["actions"][3]["visible"] = false;
-				$jsonForm["actions"][4]["visible"] = false;
+
+				// check if the user activate the adminmode "outside" from the module. In this case let the user show the "Enable Admin Mode" Button again
+				if (!$this->ReadAttributeBoolean('AdminModeUserActivated') )
+				{
+					$jsonForm["actions"][4]["visible"] = true;
+				}
+				else{
+					$jsonForm["actions"][4]["visible"] = false;
+				}
 				$jsonForm["actions"][6]["visible"] = true;
 
 				$jsonForm["elements"][5]["items"][6]["visible"] = true;
@@ -561,7 +569,12 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 						$uri = $uri."/set/ADM/(2)f";
 						Sys_getURLContent($uri);
 						$this->CheckAdminMode();
-						if ($adminmodeenable == true){ $this->WriteAttributeBoolean('AdminModeUserActivated', true); }
+						if ($adminmodeenable == true)
+						{ 
+							$this->WriteAttributeBoolean('AdminModeUserActivated', true); 
+							$this->UpdateFormField("EnableAdminModeButton", "visible", false);
+						}
+
 				break;
 				case 'ClearAlarm':
 					$uri = $uri."/set/clr/ala";

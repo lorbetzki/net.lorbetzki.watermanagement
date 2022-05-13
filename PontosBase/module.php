@@ -489,7 +489,8 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 			$ipaddress	 		= $this->ReadPropertyString('IPAddress');
 			$modell				= $this->ReadAttributeString('URI');
 			$uri       			= 'http://'.$ipaddress.':5333/'.$modell.'/get/'.$key.'';
-			
+
+			$this->CheckAdminMode();
 			if ( ($AdminMode == false) AND ($AdminModeUserActivated == true) ){ $this->WriteSetting('EnableAdminMode', 0); }
 
 			$ch = curl_init();
@@ -515,7 +516,8 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 			$ipaddress	 		= $this->ReadPropertyString('IPAddress');
 			$modell				= $this->ReadAttributeString('URI');
 			$uri       			= 'http://'.$ipaddress.':5333/'.$modell.'/get/all';
-            
+			
+			$this->CheckAdminMode();
 			if ( ($AdminMode == false) AND ($AdminModeUserActivated == true) ){ $this->WriteSetting('EnableAdminMode', 0); }
 
 			$ch = curl_init();

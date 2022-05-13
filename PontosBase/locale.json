@@ -55,7 +55,18 @@
             "moderatly hard": "mäßig hart",
             "hard": "hart",
             "very hard": "sehr hart",
-            "Unknown variables":"unbekannte Variablen"
+            "Unknown variables":"unbekannte Variablen",
+            "get all data": "hole alle Daten",
+            "update data": "Aktualisiere Daten",
+            "adminmode is not active, activate it": "Adminmodus nicht aktiv, wird gesetzt",
+            "get data for Key: ": "hole Daten für den Schlüssel: ",
+            "check admin state": "prüfe Adminstatus",
+            "AdminMode not active": "AdminMode ist nicht aktiv",
+            "AdminMode active": "AdminMode ist aktiv",
+            "Alarm cleared": "Alarm gelöscht",
+            "set profile ": "setze Profil ",
+            "set valve state ": "setze Ventilstatus ",
+            "activate AdminMode": "aktiviere AdminMode"
         }
     }
 }

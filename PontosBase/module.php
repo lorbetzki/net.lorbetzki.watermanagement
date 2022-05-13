@@ -409,10 +409,23 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 
 		public function UpdateData()
 		{
+			$this->LogMessage($this->Translate('update data'), KL_MESSAGE);
+
+			// check if User activate adminmode in the module and match if the device known this
+			$this->CheckAdminMode();
+
+			$AdminMode				= $this->ReadAttributeBoolean('AdminMode');
+			$AdminModeUserActivated = $this->ReadAttributeBoolean('AdminModeUserActivated');
+			if ( ($AdminMode == false) AND ($AdminModeUserActivated == true) )
+			{ 
+				$this->LogMessage($this->Translate('adminmode is not active, activate it'), KL_WARNING);
+				$this->WriteSetting('EnableAdminMode', 0); 
+			}
+
 			$Data = $this->GetAllData();
 			$Data += $this->GetOneData("CND"); // water water conductivity level must be get separately	
-			$ActiveProfile = $Data['getPRF']; // get active Profile from DataArray
-
+			$ActiveProfile = $Data['getPRF']; // get active Profile from DataArray			
+			
 			// check if User want to create Variable and if match with received Data, then set the value.
 
 			foreach ($Data as $key =>$value) 
@@ -483,15 +496,12 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 
 		public function GetOneData(string $key)
 		{
-			$AdminMode				= $this->ReadAttributeBoolean('AdminMode');
-			$AdminModeUserActivated = $this->ReadAttributeBoolean('AdminModeUserActivated');
-
+			
 			$ipaddress	 		= $this->ReadPropertyString('IPAddress');
 			$modell				= $this->ReadAttributeString('URI');
 			$uri       			= 'http://'.$ipaddress.':5333/'.$modell.'/get/'.$key.'';
-
-			$this->CheckAdminMode();
-			if ( ($AdminMode == false) AND ($AdminModeUserActivated == true) ){ $this->WriteSetting('EnableAdminMode', 0); }
+			
+			$this->LogMessage($this->Translate('get data for Key: ').$key, KL_MESSAGE);
 
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL, $uri);
@@ -510,15 +520,11 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 
 		public function GetAllData()
 		{
-			$AdminMode				= $this->ReadAttributeBoolean('AdminMode');
-			$AdminModeUserActivated = $this->ReadAttributeBoolean('AdminModeUserActivated');
-
 			$ipaddress	 		= $this->ReadPropertyString('IPAddress');
 			$modell				= $this->ReadAttributeString('URI');
 			$uri       			= 'http://'.$ipaddress.':5333/'.$modell.'/get/all';
 			
-			$this->CheckAdminMode();
-			if ( ($AdminMode == false) AND ($AdminModeUserActivated == true) ){ $this->WriteSetting('EnableAdminMode', 0); }
+			$this->LogMessage($this->Translate('get all data'), KL_MESSAGE);
 
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL, $uri);
@@ -538,14 +544,18 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 		// check if admin mode on the device is enable, if not, give user the option to change this
 		public function CheckAdminMode()
 		{
+			$this->LogMessage($this->Translate('check admin state'), KL_MESSAGE);
+
 			$AdminModeStatus = $this->GetOneData("NPS");
 			//$AdminModeStatus = array('getNPS' => "ERROR: ADM");
 			if ( $AdminModeStatus['getNPS'] == "ERROR: ADM")
 				{
+					$this->LogMessage($this->Translate('AdminMode not active'), KL_MESSAGE);
 					$this->WriteAttributeBoolean('AdminMode', false);
 				}
 			else 
 				{
+					$this->LogMessage($this->Translate('AdminMode active'), KL_MESSAGE);
 					$this->WriteAttributeBoolean('AdminMode', true);
 				}
 		}
@@ -562,10 +572,12 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 				case 'profile':
 						$uri = $uri."/set/prf/".$value;
 						Sys_getURLContent($uri);
+						$this->LogMessage($this->Translate('set profile ').$value, KL_MESSAGE);
 				break;
 				case 'lock':
 						$uri = $uri."/set/ab/".$value;
 						Sys_getURLContent($uri);
+						$this->LogMessage($this->Translate('set valve state ').$value, KL_MESSAGE);
 				break;
 				case 'EnableAdminMode':
 						$uri = $uri."/set/ADM/(2)f";
@@ -575,12 +587,15 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 						{ 
 							$this->WriteAttributeBoolean('AdminModeUserActivated', true); 
 							$this->UpdateFormField("EnableAdminModeButton", "visible", false);
+							$this->LogMessage($this->Translate('activate AdminMode'), KL_MESSAGE);
+
 						}
 
 				break;
 				case 'ClearAlarm':
 					$uri = $uri."/set/clr/ala";
 					Sys_getURLContent($uri);
+					$this->LogMessage($this->Translate('Alarm cleared'), KL_MESSAGE);
 				break;
 			
 			}

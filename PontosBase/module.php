@@ -192,6 +192,14 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 
 				IPS_SetVariableProfileValues("WaterManagement.Hardness", 0, 0, 1);
 			}
+			if (!@IPS_VariableProfileExists("WaterManagement.Alarm"))
+			{
+				IPS_CreateVariableProfile("WaterManagement.Alarm", 3);
+				IPS_SetVariableProfileAssociation("WaterManagement.Alarm", "FF", $this->Translate('everything OK'), "", 0xFFFFFF);
+				IPS_SetVariableProfileAssociation("WaterManagement.Alarm", "A3", $this->Translate('expected flow rate exceeded'), "", 0xFFFFFF);
+				IPS_SetVariableProfileAssociation("WaterManagement.Alarm", "A4", $this->Translate('Error: no more information available'), "", 0xFFFFFF);
+				IPS_SetVariableProfileAssociation("WaterManagement.Alarm", "AE", $this->Translate('Error: no more information available'), "", 0xFFFFFF);
+			}
 			############################### 
 
 			$this->MaintainVariable('getPN', $this->Translate('active profile name'),3, "",1, $this->ReadPropertyBoolean('getPNbool') == true);
@@ -214,7 +222,7 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 			$this->MaintainVariable('getCNO', $this->Translate('Code-no.'),3, "",23, $this->ReadPropertyBoolean('getCNObool') == true);
 			$this->MaintainVariable('getMAC', $this->Translate('MAC Address'),3, "",24, $this->ReadPropertyBoolean('getMACbool') == true);
 			$this->MaintainVariable('getRTC', $this->Translate('last update'),1, "~UnixTimestamp",25, $this->ReadPropertyBoolean('getRTCbool') == true);
-			$this->MaintainVariable('getALA', $this->Translate('current alarm'),3, "",26, $this->ReadPropertyBoolean('getALAbool') == true);
+			$this->MaintainVariable('getALA', $this->Translate('current alarm'),3, "WaterManagement.Alarm",26, $this->ReadPropertyBoolean('getALAbool') == true);
 
 			$this->MaintainVariable('getPR', $this->Translate('getPR'),1, "",61, $this->ReadPropertyBoolean('getPRbool') == true);
 			$this->MaintainVariable('getPB', $this->Translate('getPB'),1, "",62, $this->ReadPropertyBoolean('getPBbool') == true);

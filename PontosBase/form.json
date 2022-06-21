@@ -121,6 +121,12 @@
                     "caption": "switch active profile",
                     "name": "getPROFILESWbool",
                     "visible": false
+                },
+                {
+                    "type": "CheckBox",
+                    "caption": "clear Alarm",
+                    "name": "getALASWbool",
+                    "visible": false
                 }
             ]
         },

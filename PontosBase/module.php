@@ -107,6 +107,8 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 			$this->RegisterPropertyBoolean('getLOCKbool', false);
 			$this->RegisterPropertyInteger('getPROFILESW', 0);
 			$this->RegisterPropertyBoolean('getPROFILESWbool', false);
+			$this->RegisterPropertyBoolean('getALASW', false);
+			$this->RegisterPropertyBoolean('getALASWbool', false);
 
 						
 			$this->RegisterTimer('HGPB_UpdateData', 0, 'HGPB_UpdateData($_IPS[\'TARGET\']);');
@@ -200,6 +202,13 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 				IPS_SetVariableProfileAssociation("WaterManagement.Alarm", "A4", $this->Translate('Error: no more information available'), "", 0xFFFFFF);
 				IPS_SetVariableProfileAssociation("WaterManagement.Alarm", "AE", $this->Translate('Error: no more information available'), "", 0xFFFFFF);
 			}
+			if (!@IPS_VariableProfileExists("WaterManagement.clrAla"))
+			{
+				IPS_CreateVariableProfile("WaterManagement.clrAla", 0);
+				IPS_SetVariableProfileAssociation("WaterManagement.clrAla", 'false', " ", "", 0xFFFFFF);
+				IPS_SetVariableProfileAssociation("WaterManagement.clrAla", 'true', $this->Translate('clear Alarm'), "", 0x00FF00);
+			}
+			
 			############################### 
 
 			$this->MaintainVariable('getPN', $this->Translate('active profile name'),3, "",1, $this->ReadPropertyBoolean('getPNbool') == true);
@@ -251,6 +260,8 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 			$this->MaintainVariable('getLOCK', $this->Translate('lock or unlock valve'),1, "WaterManagement.Valve",90, $this->ReadPropertyBoolean('getLOCKbool') == true);
 			$this->MaintainVariable('getPROFILESW', $this->Translate('switch active profile'),1, "WaterManagement.Profile",91, $this->ReadPropertyBoolean('getPROFILESWbool') == true);
 
+			$this->MaintainVariable('getALASW', $this->Translate('clear Alarm'),0, "WaterManagement.clrAla",92, $this->ReadPropertyBoolean('getALASWbool') == true);
+
 			######################## 
 			// check if user deactivate variable with own IPS Profiles and delete them
 
@@ -292,7 +303,11 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 			{
 				$this->EnableAction('getPROFILESW');
 			}
-
+			if  ($this->ReadPropertyBoolean('getALASWbool') )
+			{
+				$this->EnableAction('getALASW');
+			}
+		
 			if (!$this->ReadPropertyBoolean('getCNDbool') )
 			{
 				$this->UnregisterVariable("getCND2");
@@ -374,6 +389,7 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 				$jsonForm["elements"][5]["items"][12]["visible"] = true;
 				$jsonForm["elements"][5]["items"][13]["visible"] = true;
 				$jsonForm["elements"][5]["items"][14]["visible"] = true;
+				$jsonForm["elements"][5]["items"][15]["visible"] = true;
 
 				// ADMIN ONLY i created all elements incl. unknown variables... for release hide them
 				/* 
@@ -601,7 +617,14 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 
 				break;
 				case 'ClearAlarm':
-					$uri = $uri."/set/clr/ala";
+					if ($modell = "Pontos-Base")
+					{
+						$uri = $uri."/clr/ala";	
+					}
+					else 
+					{
+						$uri = $uri."/set/clr/ala";
+					}
 					Sys_getURLContent($uri);
 					$this->LogMessage($this->Translate('Alarm cleared'), KL_MESSAGE);
 				break;
@@ -622,6 +645,12 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 					if ($Value == 20){$Value = 1;} // set/ab/1 open valve
 					$this->WriteSetting("lock", $Value);
 				break;
+				case 'getALASW':
+					$this->WriteSetting("ClearAlarm", 0);
+					$this->SetValue("getALASW", true);
+					ips_sleep(1500);
+					$this->SetValue("getALASW", false);
+				break;	
 			}
 		}
 

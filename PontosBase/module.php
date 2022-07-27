@@ -446,8 +446,10 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 				$this->WriteSetting('EnableAdminMode', 0); 
 			}
 
-			$Data = $this->GetAllData();
-			$Data[] = $this->GetOneData("CND"); // water water conductivity level must be get separately	
+			$DataAll = $this->GetAllData();
+			$DataCND = $this->GetOneData("CND"); // water water conductivity level must be get separately	
+			$Data = array_merge($DataAll, $DataCND);
+			
 			$ActiveProfile = $Data['getPRF']; // get active Profile from DataArray			
 			
 			// check if User want to create Variable and if match with received Data, then set the value.

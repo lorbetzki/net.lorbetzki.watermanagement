@@ -204,9 +204,9 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 			}
 			if (!@IPS_VariableProfileExists("WaterManagement.clrAla"))
 			{
-				IPS_CreateVariableProfile("WaterManagement.clrAla", 0);
-				IPS_SetVariableProfileAssociation("WaterManagement.clrAla", 'false', " ", "", 0xFFFFFF);
-				IPS_SetVariableProfileAssociation("WaterManagement.clrAla", 'true', $this->Translate('clear Alarm'), "", 0x00FF00);
+				IPS_CreateVariableProfile("WaterManagement.clrAla", 1);
+				IPS_SetVariableProfileDigits("WaterManagement.clrAla", 1);
+				IPS_SetVariableProfileAssociation("WaterManagement.clrAla", 0, $this->Translate('clear Alarm'), "", 0x00FF00);
 			}
 			
 			############################### 
@@ -260,7 +260,7 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 			$this->MaintainVariable('getLOCK', $this->Translate('lock or unlock valve'),1, "WaterManagement.Valve",90, $this->ReadPropertyBoolean('getLOCKbool') == true);
 			$this->MaintainVariable('getPROFILESW', $this->Translate('switch active profile'),1, "WaterManagement.Profile",91, $this->ReadPropertyBoolean('getPROFILESWbool') == true);
 
-			$this->MaintainVariable('getALASW', $this->Translate('clear Alarm'),0, "WaterManagement.clrAla",92, $this->ReadPropertyBoolean('getALASWbool') == true);
+			$this->MaintainVariable('getALASW', $this->Translate('clear Alarm'),1, "WaterManagement.clrAla",92, $this->ReadPropertyBoolean('getALASWbool') == true);
 
 			######################## 
 			// check if user deactivate variable with own IPS Profiles and delete them
@@ -447,7 +447,7 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 			}
 
 			$Data = $this->GetAllData();
-			$Data += $this->GetOneData("CND"); // water water conductivity level must be get separately	
+			$Data[] = $this->GetOneData("CND"); // water water conductivity level must be get separately	
 			$ActiveProfile = $Data['getPRF']; // get active Profile from DataArray			
 			
 			// check if User want to create Variable and if match with received Data, then set the value.

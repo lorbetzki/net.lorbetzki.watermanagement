@@ -587,6 +587,10 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 			$this->LogMessage($this->Translate('check admin state'), KL_MESSAGE);
 
 			$AdminModeStatus = $this->GetOneData("NPS");
+			if (!is_array($AdminModeStatus)) {
+				$this->LogMessage($this->Translate('problems to get admin status, data is not an array, try again later'), KL_ERROR);
+				exit; 
+			}
 			//$AdminModeStatus = array('getNPS' => "ERROR: ADM");
 			if ( $AdminModeStatus['getNPS'] == "ERROR: ADM")
 				{

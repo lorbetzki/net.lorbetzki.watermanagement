@@ -69,7 +69,11 @@
             "activate AdminMode": "aktiviere AdminMode",
             "expected flow rate exceeded": "erwartete Durchflussmenge überschritten",
             "everything OK": "alles OK",
-            "Error: no more information available": "Fehler: keine Information verfügbar"
+            "Error: no more information available": "Fehler: keine Information verfügbar",
+            "problems to get admin status, data is not an array, try again later": "kann Adminstatus nicht holen. Daten sind kein Array, versuche es später nochmal",
+            "GetAllData(): Error to get data": "GetAllData(): bekomme keine Daten.",
+            "GetOneData(): Error to get data": "GetOneData(): bekomme keine Daten.",
+            "no response from device": "keine Antwort vom Gerät"
         }
     }
 }

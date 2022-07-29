@@ -449,7 +449,7 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 			$DataAll = $this->GetAllData();
 			$DataCND = $this->GetOneData("CND"); // water water conductivity level must be get separately	
 			$Data = array_merge($DataAll, $DataCND);
-			
+
 			$ActiveProfile = $Data['getPRF']; // get active Profile from DataArray			
 			
 			// check if User want to create Variable and if match with received Data, then set the value.
@@ -540,6 +540,7 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 				return false;
 			}
 			$responseData = json_decode($response, TRUE);
+			$this->SendDebug(__FUNCTION__, $response, 0);
 			return $responseData;	
 		}
 
@@ -563,7 +564,8 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 				return false;
 			}
 			$responseData = json_decode($response, TRUE);
-	  	  
+			$this->SendDebug(__FUNCTION__, $response, 0);
+
 			return $responseData;	
 		}
 

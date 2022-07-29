@@ -447,7 +447,11 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 			}
 
 			$DataAll = $this->GetAllData();
-			$DataCND = $this->GetOneData("CND"); // water water conductivity level must be get separately	
+			$DataCND = $this->GetOneData("CND"); // water water conductivity level must be get separately
+			if (!is_array($DataAll) || !is_array($DataCND)) {
+				$this->LogMessage($this->Translate('problems to get data, data is not an array, try again later'), KL_ERROR);
+				exit; 
+			}
 			$Data = array_merge($DataAll, $DataCND);
 
 			$ActiveProfile = $Data['getPRF']; // get active Profile from DataArray			
@@ -532,11 +536,14 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL, $uri);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+			curl_setopt($ch, CURLOPT_NOSIGNAL, 1);
+			curl_setopt($ch, CURLOPT_TIMEOUT, 5);
 			$response = curl_exec($ch);
 			$curl_error = curl_error($ch);
 			curl_close($ch);
 			if (empty($response) || $response === false || !empty($curl_error)) {
 				$this->SendDebug(__FUNCTION__, 'no response from device' . $curl_error, 0);
+				$this->LogMessage($this->Translate('GetOneData(): Error to get data'), KL_ERROR);
 				return false;
 			}
 			$responseData = json_decode($response, TRUE);
@@ -556,13 +563,18 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL, $uri);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+			curl_setopt($ch, CURLOPT_NOSIGNAL, 1);
+			curl_setopt($ch, CURLOPT_TIMEOUT, 5);
 			$response = curl_exec($ch);
 			$curl_error = curl_error($ch);
+
 			curl_close($ch);
 			if (empty($response) || $response === false || !empty($curl_error)) {
-				$this->SendDebug(__FUNCTION__, 'no response from device' . $curl_error, 0);
+				$this->SendDebug(__FUNCTION__, 'no response from device: ' . $curl_error, 0);
+				$this->LogMessage($this->Translate('GetAllData(): Error to get data'), KL_ERROR);
 				return false;
 			}
+
 			$responseData = json_decode($response, TRUE);
 			$this->SendDebug(__FUNCTION__, $response, 0);
 

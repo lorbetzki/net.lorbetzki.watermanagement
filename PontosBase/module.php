@@ -11,7 +11,7 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 			//Never delete this line!
 			parent::Create();
 			$this->RegisterPropertyString('IPAddress', '');
-			$this->RegisterPropertyString('Modell', 'hansgrohe');
+			$this->RegisterPropertyString('Modell', '0');
 			$this->RegisterAttributeString('URI', '');
 			$this->RegisterAttributeBoolean('FirstRunDone', false);
 
@@ -197,9 +197,18 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 			if (!@IPS_VariableProfileExists("WaterManagement.Alarm"))
 			{
 				IPS_CreateVariableProfile("WaterManagement.Alarm", 3);
-				IPS_SetVariableProfileAssociation("WaterManagement.Alarm", "FF", $this->Translate('everything OK'), "", 0xFFFFFF);
-				IPS_SetVariableProfileAssociation("WaterManagement.Alarm", "A3", $this->Translate('expected flow rate exceeded'), "", 0xFFFFFF);
-				IPS_SetVariableProfileAssociation("WaterManagement.Alarm", "A4", $this->Translate('Error: no more information available'), "", 0xFFFFFF);
+				IPS_SetVariableProfileAssociation("WaterManagement.Alarm", "FF", $this->Translate('NO ALARM'), "", 0xFFFFFF);
+				IPS_SetVariableProfileAssociation("WaterManagement.Alarm", "A1", $this->Translate('ALARM END SWITCH'), "", 0xFFFFFF);
+				IPS_SetVariableProfileAssociation("WaterManagement.Alarm", "A2", $this->Translate('ALARM TURBINE BLOCKED'), "", 0xFFFFFF);
+				IPS_SetVariableProfileAssociation("WaterManagement.Alarm", "A3", $this->Translate('ALARM VOLUME LEAKAGE'), "", 0xFFFFFF);
+				IPS_SetVariableProfileAssociation("WaterManagement.Alarm", "A4", $this->Translate('ALARM TIME LEAKAGE'), "", 0xFFFFFF);
+				IPS_SetVariableProfileAssociation("WaterManagement.Alarm", "A5", $this->Translate('ALARM MAX FLOW LEAKAGE'), "", 0xFFFFFF);
+				IPS_SetVariableProfileAssociation("WaterManagement.Alarm", "A6", $this->Translate('ALARM MICRO LEAKAGE'), "", 0xFFFFFF);
+				IPS_SetVariableProfileAssociation("WaterManagement.Alarm", "A7", $this->Translate('ALARM EXT. SENSOR LEAKAGE RADIO'), "", 0xFFFFFF);
+				IPS_SetVariableProfileAssociation("WaterManagement.Alarm", "A8", $this->Translate('ALARM EXT. SENSOR LEAKAGE CABLE'), "", 0xFFFFFF);
+				IPS_SetVariableProfileAssociation("WaterManagement.Alarm", "A9", $this->Translate('ALARM PRESSURE SENSOR ERROR'), "", 0xFFFFFF);
+				IPS_SetVariableProfileAssociation("WaterManagement.Alarm", "AA", $this->Translate('ALARM TEMPERATURE SENSOR ERROR'), "", 0xFFFFFF);
+				IPS_SetVariableProfileAssociation("WaterManagement.Alarm", "AB", $this->Translate('ALARM LOW BATTERY'), "", 0xFFFFFF);
 				IPS_SetVariableProfileAssociation("WaterManagement.Alarm", "AE", $this->Translate('Error: no more information available'), "", 0xFFFFFF);
 			}
 			if (!@IPS_VariableProfileExists("WaterManagement.clrAla"))
@@ -236,26 +245,26 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 			$this->MaintainVariable('getPR', $this->Translate('getPR'),1, "",61, $this->ReadPropertyBoolean('getPRbool') == true);
 			$this->MaintainVariable('getPB', $this->Translate('getPB'),1, "",62, $this->ReadPropertyBoolean('getPBbool') == true);
 			
-			$this->MaintainVariable('getTMP', $this->Translate('getTMP'),1, "",63, $this->ReadPropertyBoolean('getTMPbool') == true);
-			$this->MaintainVariable('getCEL', $this->Translate('getCEL'),1, "",65, $this->ReadPropertyBoolean('getCELbool') == true);
-			$this->MaintainVariable('getNPS', $this->Translate('getNPS'),1, "",67, $this->ReadPropertyBoolean('getNPSbool') == true);
-			$this->MaintainVariable('getALM', $this->Translate('getALM'),3, "",69, $this->ReadPropertyBoolean('getALMbool') == true);
+			$this->MaintainVariable('getTMP', $this->Translate('Get temporary deactivation for leakage detection time'),1, "",63, $this->ReadPropertyBoolean('getTMPbool') == true);
+			$this->MaintainVariable('getCEL', $this->Translate('Get water temperature'),1, "",65, $this->ReadPropertyBoolean('getCELbool') == true);
+			$this->MaintainVariable('getNPS', $this->Translate('Get no pulse time of turbine in seconds'),1, "",67, $this->ReadPropertyBoolean('getNPSbool') == true);
+			$this->MaintainVariable('getALM', $this->Translate('Alert memory '),3, "",69, $this->ReadPropertyBoolean('getALMbool') == true);
 			$this->MaintainVariable('getDMA', $this->Translate('getDMA'),1, "",70, $this->ReadPropertyBoolean('getDMAbool') == true);
-			$this->MaintainVariable('getAVO', $this->Translate('getAVO'),1, "WaterManagement.Mliter",71, $this->ReadPropertyBoolean('getAVObool') == true);
-			$this->MaintainVariable('get71', $this->Translate('get71'),1, "",73, $this->ReadPropertyBoolean('get71bool') == true);
-			$this->MaintainVariable('getBUZ', $this->Translate('getBUZ'),1, "",76, $this->ReadPropertyBoolean('getBUZbool') == true);
-			$this->MaintainVariable('getDBD', $this->Translate('getDBD'),1, "",77, $this->ReadPropertyBoolean('getDBDbool') == true);
-			$this->MaintainVariable('getDBT', $this->Translate('getDBT'),1, "",78, $this->ReadPropertyBoolean('getDBTbool') == true);
-			$this->MaintainVariable('getDST', $this->Translate('getDST'),1, "",79, $this->ReadPropertyBoolean('getDSTbool') == true);
-			$this->MaintainVariable('getDCM', $this->Translate('getDCM'),1, "",80, $this->ReadPropertyBoolean('getDCMbool') == true);
-			$this->MaintainVariable('getDOM', $this->Translate('getDOM'),1, "",81, $this->ReadPropertyBoolean('getDOMbool') == true);
-			$this->MaintainVariable('getDPL', $this->Translate('getDPL'),1, "",82, $this->ReadPropertyBoolean('getDPLbool') == true);
-			$this->MaintainVariable('getDTC', $this->Translate('getDTC'),1, "",83, $this->ReadPropertyBoolean('getDTCbool') == true);
-			$this->MaintainVariable('getDRP', $this->Translate('getDRP'),1, "",84, $this->ReadPropertyBoolean('getDRPbool') == true);
-			$this->MaintainVariable('getWFS', $this->Translate('getWFS'),1, "",85, $this->ReadPropertyBoolean('getWFSbool') == true);
-			$this->MaintainVariable('getWFR', $this->Translate('getWFR'),1, "",86, $this->ReadPropertyBoolean('getWFRbool') == true);
-			$this->MaintainVariable('getIDS', $this->Translate('getIDS'),1, "",88, $this->ReadPropertyBoolean('getIDSbool') == true);
-			$this->MaintainVariable('getTMZ', $this->Translate('getTMZ'),1, "",89, $this->ReadPropertyBoolean('getTMZbool') == true);
+			$this->MaintainVariable('getAVO', $this->Translate('Get volume of the current water consumption process in mm'),1, "WaterManagement.Mliter",71, $this->ReadPropertyBoolean('getAVObool') == true);
+			$this->MaintainVariable('get71', $this->Translate('Get state of leakage protection deactivation'),1, "",73, $this->ReadPropertyBoolean('get71bool') == true);
+			$this->MaintainVariable('getBUZ', $this->Translate('Get state of alarm buzzer'),1, "",76, $this->ReadPropertyBoolean('getBUZbool') == true);
+			$this->MaintainVariable('getDBD', $this->Translate('Get the configured Micro Leakage test pressure drop in bar.'),1, "",77, $this->ReadPropertyBoolean('getDBDbool') == true);
+			$this->MaintainVariable('getDBT', $this->Translate('Get the configued pressure drop time for Micro Leakage test.'),1, "",78, $this->ReadPropertyBoolean('getDBTbool') == true);
+			$this->MaintainVariable('getDST', $this->Translate('Get Micro Leakage test No puls time'),1, "",79, $this->ReadPropertyBoolean('getDSTbool') == true);
+			$this->MaintainVariable('getDCM', $this->Translate('Get the configured duration time for Micro Leakage test.'),1, "",80, $this->ReadPropertyBoolean('getDCMbool') == true);
+			$this->MaintainVariable('getDOM', $this->Translate('Get the Micro Leakage Test open time'),1, "",81, $this->ReadPropertyBoolean('getDOMbool') == true);
+			$this->MaintainVariable('getDPL', $this->Translate('Get the configured Micro Leakage Test pulses.'),1, "",82, $this->ReadPropertyBoolean('getDPLbool') == true);
+			$this->MaintainVariable('getDTC', $this->Translate('Get the configured Micro Leakage verification cycles.'),1, "",83, $this->ReadPropertyBoolean('getDTCbool') == true);
+			$this->MaintainVariable('getDRP', $this->Translate('Get set Micro leakage test period'),1, "",84, $this->ReadPropertyBoolean('getDRPbool') == true);
+			$this->MaintainVariable('getWFS', $this->Translate('Get Wifi connection state'),1, "",85, $this->ReadPropertyBoolean('getWFSbool') == true);
+			$this->MaintainVariable('getWFR', $this->Translate('Get Wifi connection strength (RSSI)'),1, "",86, $this->ReadPropertyBoolean('getWFRbool') == true);
+			$this->MaintainVariable('getIDS', $this->Translate('Get activation state of Daylight saving mode'),1, "",88, $this->ReadPropertyBoolean('getIDSbool') == true);
+			$this->MaintainVariable('getTMZ', $this->Translate('Get set time zone'),1, "",89, $this->ReadPropertyBoolean('getTMZbool') == true);
 			
 			$this->MaintainVariable('getLOCK', $this->Translate('lock or unlock valve'),1, "WaterManagement.Valve",90, $this->ReadPropertyBoolean('getLOCKbool') == true);
 			$this->MaintainVariable('getPROFILESW', $this->Translate('switch active profile'),1, "WaterManagement.Profile",91, $this->ReadPropertyBoolean('getPROFILESWbool') == true);
@@ -314,17 +323,6 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 			}
 			########################
 
-			// create  URI for actions and reading values
-			if ($this->ReadPropertyString('Modell') == "hansgrohe")
-			{
-				$this->WriteAttributeString('URI', "Pontos-Base");
-			}
-
-			if ($this->ReadPropertyString('Modell') == "syrtech")
-			{
-				$this->WriteAttributeString('URI', "safe-tec");
-			}
-			####
 			if ($this->ReadAttributeBoolean('FirstRunDone') )
 			{
 				$this->UpdateData();
@@ -528,8 +526,7 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 		{
 			
 			$ipaddress	 		= $this->ReadPropertyString('IPAddress');
-			$modell				= $this->ReadAttributeString('URI');
-			$uri       			= 'http://'.$ipaddress.':5333/'.$modell.'/get/'.$key.'';
+			$uri       			= 'http://'.$ipaddress.':5333/Pontos-Base/get/'.$key.'';
 			
 			$this->LogMessage($this->Translate('get data for Key: ').$key, KL_MESSAGE);
 
@@ -555,8 +552,7 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 		public function GetAllData()
 		{
 			$ipaddress	 		= $this->ReadPropertyString('IPAddress');
-			$modell				= $this->ReadAttributeString('URI');
-			$uri       			= 'http://'.$ipaddress.':5333/'.$modell.'/get/all';
+			$uri       			= 'http://'.$ipaddress.':5333/Pontos-Base/get/all';
 			
 			$this->LogMessage($this->Translate('get all data'), KL_MESSAGE);
 
@@ -604,12 +600,50 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 				}
 		}
 		
+
+		public function CheckConnection()
+		{
+			$this->LogMessage($this->Translate('check Wifi Connection'), KL_MESSAGE);
+
+			$ipaddress	 		= $this->ReadPropertyString('IPAddress');
+			$uri       			= 'http://'.$ipaddress.':5333/Pontos-Base/get/WFS';
+			
+			$this->LogMessage($this->Translate('Check Wifi Connection: '), KL_MESSAGE);
+
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $uri);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+			curl_setopt($ch, CURLOPT_NOSIGNAL, 1);
+			curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 3); 
+			curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+			$response = curl_exec($ch);
+			$curl_error = curl_error($ch);
+			curl_close($ch);
+
+			if (empty($response) || $response === false || !empty($curl_error)) {
+				$this->SendDebug(__FUNCTION__, 'no response from device, wrong IP Address or device out of range!' . $curl_error, 0);
+				$this->LogMessage($this->Translate('CheckConnection(): no response from device, wrong IP Address or device out of range!'), KL_ERROR);
+				echo "no response from device, wrong IP Address or device out of range!";
+				return false;
+			}
+			else
+			{
+				$this->SendDebug(__FUNCTION__, 'Device is reachable' . $curl_error, 0);
+				$this->LogMessage($this->Translate('CheckConnection(): Device is reachable'), KL_MESSAGE);
+				echo "Device is reachable!";
+				return true;
+			}
+			$responseData = json_decode($response, TRUE);
+			$this->SendDebug(__FUNCTION__, $response, 0);
+			return $responseData;	
+
+		}
+
 		public function WriteSetting(string $setting, int $value)
 		{
 			$adminmodeenable	= $this->ReadAttributeBoolean('AdminMode');
 			$ipaddress	 		= $this->ReadPropertyString('IPAddress');
-			$modell				= $this->ReadAttributeString('URI');
-			$uri       			= 'http://'.$ipaddress.':5333/'.$modell;
+			$uri       			= 'http://'.$ipaddress.':5333/hansgrohe';
 
 			switch($setting)
 			{
@@ -637,14 +671,7 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 
 				break;
 				case 'ClearAlarm':
-					if ($modell = "Pontos-Base")
-					{
 						$uri = $uri."/clr/ala";	
-					}
-					else 
-					{
-						$uri = $uri."/set/clr/ala";
-					}
 					Sys_getURLContent($uri);
 					$this->LogMessage($this->Translate('Alarm cleared'), KL_MESSAGE);
 				break;

@@ -643,7 +643,7 @@ require_once __DIR__ . '/../libs/VariableProfileHelper.php';
 		{
 			$adminmodeenable	= $this->ReadAttributeBoolean('AdminMode');
 			$ipaddress	 		= $this->ReadPropertyString('IPAddress');
-			$uri       			= 'http://'.$ipaddress.':5333/hansgrohe';
+			$uri       			= 'http://'.$ipaddress.':5333/Pontos-Base';
 
 			switch($setting)
 			{
